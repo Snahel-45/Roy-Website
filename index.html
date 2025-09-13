@@ -27,12 +27,66 @@
     .topbar a{color:#ffb703;margin-left:12px;}
 
     /* navbar */
-    .navbar-brand strong{color:var(--brand)}
+    /* Brand logo hover */
+.brand-logo {
+  height: 45px;
+  width: 45px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+.brand-logo:hover {
+  transform: rotate(-5deg) scale(1.1);
+}
+
+/* Navbar */
+.custom-navbar {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Navbar links */
+.custom-navbar .nav-link {
+  position: relative;
+  padding: 8px 15px;
+  color: #333 !important;
+  transition: color 0.3s;
+}
+.custom-navbar .nav-link:hover {
+  color: #ffb703 !important;
+}
+
+/* Underline animation */
+.custom-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 0%;
+  height: 2px;
+  background: #ffb703;
+  transition: width 0.3s ease;
+}
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link.active::after {
+  width: 100%;
+}
+
+/* Enroll button */
+.enroll-btn {
+  box-shadow: 0 3px 10px rgba(255, 183, 3, 0.4);
+  transition: all 0.3s ease;
+}
+.enroll-btn:hover {
+  background: #333 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
 
     /* hero */
     .hero{
       padding: 6rem 0 4rem;
-      background: url('https://images.stockcake.com/public/a/a/0/aa00e5fb-6b3e-4b89-875c-2b66dd9c20ae_large/students-using-computers-stockcake.jpg') center/cover no-repeat;
+      background: url('image/students-using-computers-stockcake.jpg') center/cover no-repeat;
       position:relative;
       color:#fff;
     }
@@ -156,6 +210,9 @@
   border-radius: 14px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .trainer-card:hover {
   transform: translateY(-8px);
@@ -222,32 +279,52 @@
 }
 
 
-.footer h6, 
-.footer h5 {
-  color: #fff;
-}
-
+/* Footer Links */
 .footer-link {
-  color: #bbb;
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
 }
 .footer-link:hover {
-  color: #ffc107;
+  color: #ffb703;
   padding-left: 5px;
 }
 
+/* Social Icons */
+.social-icons a {
+  display: inline-block;
+  color: #fff;
+  font-size: 16px;
+  margin-right: 10px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 34px;
+  transition: all 0.3s ease;
+}
+.social-icons a:hover {
+  background: #ffb703;
+  color: #111;
+  border-color: #ffb703;
+}
+
+/* Subscribe Input */
 .subscribe-box input {
-  border: none;
+  border: 1px solid #ffb703;
   padding: 8px 12px;
 }
-.subscribe-box button {
-  font-weight: 600;
-  transition: all 0.3s;
+.subscribe-box input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
 }
-.subscribe-box button:hover {
-  background-color: #ff9800;
-  transform: scale(1.05);
+
+/* Footer Background Height */
+.footer {
+  width: 100%;
+  min-height: 300px;
+  background: #111; /* darker than bg-dark */
 }
 
 
@@ -274,30 +351,40 @@
   </div>
 
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-        <img src="https://dummyimage.com/40x40/ffb703/000.png&text=R" alt="logo" style="height:40px;width:40px;border-radius:8px;">
-        <div class="d-none d-sm-block">
-          <div style="line-height:1">Roy <strong>Informatics</strong></div>
-          <small class="text-muted" style="font-size:11px">Web & Digital Training</small>
-        </div>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
-          <li class="nav-item"><a class="nav-link" href="#trainers">Trainers</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item ms-lg-3"><a class="btn btn-outline-dark btn-sm" href="#contact">Enroll Now</a></li>
-        </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top custom-navbar">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img src="image/logo.png" 
+           alt="logo" class="brand-logo">
+      <div class="d-none d-sm-block">
+        <div class="brand-text">Roy <strong>Informatics</strong></div>
+        <small class="text-muted" style="font-size:11px">Web & Digital Training</small>
       </div>
+    </a>
+
+    <!-- Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu -->
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-lg-3">
+          <a class="btn btn-warning btn-sm rounded-pill px-3 fw-bold enroll-btn" href="#contact">
+            Enroll Now
+          </a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
+
 
   <!-- HERO -->
   <section class="hero">
@@ -320,7 +407,7 @@
 </div>
 <div class="col-lg-6 d-none d-lg-block">
 <div class="floaty">
-<img src="https://t3.ftcdn.net/jpg/04/86/21/96/360_F_486219619_Pp472TBS4kUfET2QtnqSqvNftahab6CZ.jpg" class="img-fluid rounded-4 shadow-lg" alt="students working on laptop">
+<img src="image/front.jpg" class="img-fluid rounded-4 shadow-lg" alt="students working on laptop">
 </div>
 </div>
 </div>
@@ -331,6 +418,8 @@
   <div class="container text-center">
     <h3 class="section-title mb-4 fw-bold text-center">
   Why choose <span style="color:var(--brand)">Roy Informatics</span>?
+  <span class="d-block mx-auto mt-2" 
+                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
 </h3>
     <div class="row g-4">
 
@@ -378,7 +467,10 @@
   <!-- CATEGORIES -->
   <section class="py-5 bg-light">
   <div class="container">
-    <h4 class="mb-5 fw-bold text-center">Browse By Categories</h4>
+    <h4 class="mb-5 fw-bold text-center">Browse By Categories
+      <span class="d-block mx-auto mt-2" 
+                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
+    </h4>
     <div class="row g-4">
 
       <!-- Frontend Development -->
@@ -455,14 +547,17 @@
   <!-- COURSES -->
   <section id="courses" class="py-5">
   <div class="container">
-    <h4 class="mb-5 fw-bold text-center">Top Popular Courses</h4>
+    <h4 class="mb-5 fw-bold text-center">Top Popular Courses
+      <span class="d-block mx-auto mt-2" 
+                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
+    </h4>
     <div class="row g-4">
       
       <!-- Course 1 -->
       <div class="col-md-4">
         <div class="card course-card h-100 border-0 shadow-sm">
           <div class="position-relative">
-            <img src="https://picsum.photos/500/300?1" class="card-img-top" alt="Frontend Web Design">
+            <img src="image/frontend.png" class="card-img-top" alt="Frontend Web Design">
             <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-2">Web Design</span>
           </div>
           <div class="card-body">
@@ -477,7 +572,7 @@
       <div class="col-md-4">
         <div class="card course-card h-100 border-0 shadow-sm">
           <div class="position-relative">
-            <img src="https://picsum.photos/500/300?2" class="card-img-top" alt="Digital Marketing">
+            <img src="image/digital marketing.jpeg" class="card-img-top" alt="Digital Marketing">
             <span class="badge bg-success position-absolute top-0 start-0 m-2">Marketing</span>
           </div>
           <div class="card-body">
@@ -492,7 +587,7 @@
       <div class="col-md-4">
         <div class="card course-card h-100 border-0 shadow-sm">
           <div class="position-relative">
-            <img src="https://picsum.photos/500/300?3" class="card-img-top" alt="WordPress & Freelancing">
+            <img src="image/wordpress.png" class="card-img-top" alt="WordPress & Freelancing">
             <span class="badge bg-primary position-absolute top-0 start-0 m-2">WordPress</span>
           </div>
           <div class="card-body">
@@ -503,6 +598,13 @@
         </div>
       </div>
 
+    </div>
+  </div>
+  <!-- Load More Button -->
+    <div class="text-center mt-5">
+      <a href="courses.html" class="btn btn-dark btn-lg rounded-pill shadow-lg px-5 py-2">
+        Load More Courses <i class="fa fa-arrow-right ms-2"></i>
+      </a>
     </div>
   </div>
 </section>
@@ -533,8 +635,8 @@
 
           <!-- Instructor 1 -->
           <div class="col-md-6">
-            <div class="card shadow border-0 rounded-3 h-100 trainer-card">
-              <img src="https://static.vecteezy.com/system/resources/thumbnails/048/764/749/small_2x/confident-young-polish-male-teacher-in-classroom-smiling-in-front-of-blackboard-for-education-and-teaching-concepts-photo.jpg" class="card-img-top rounded-top" alt="Amit Roy">
+            <div class="card shadow border-0 rounded-3 h-90 trainer-card">
+              <img src="image/t1.jpg" class="card-img-top rounded-top" alt="Amit Roy">
               <div class="card-body text-center">
                 <h5 class="card-title mb-0">Amit Roy</h5>
                 <small class="text-muted">Web Designer</small>
@@ -544,8 +646,8 @@
 
           <!-- Instructor 2 -->
           <div class="col-md-6">
-            <div class="card shadow border-0 rounded-3 h-100 trainer-card">
-              <img src="https://www.cvexpres.com/teaching-jobs-schools/wp-content/uploads/2023/08/job_teacher_classroom_teacher.jpg" class="card-img-top rounded-top" alt="Priya Sen">
+            <div class="card shadow border-0 rounded-3 h-90 trainer-card">
+              <img src="image/t2.jpg" class="card-img-top rounded-top" alt="Priya Sen">
               <div class="card-body text-center">
                 <h5 class="card-title mb-0">Priya Sen</h5>
                 <small class="text-muted">Marketing Lead</small>
@@ -555,8 +657,8 @@
 
           <!-- Instructor 3 -->
           <div class="col-md-6">
-            <div class="card shadow border-0 rounded-3 h-100 trainer-card">
-              <img src="https://img.freepik.com/premium-photo/digital-marketing-instructor-man-teaching-class-students-modern-university-classroom_923558-1916.jpg" class="card-img-top rounded-top" alt="Ravi Kumar">
+            <div class="card shadow border-0 rounded-3 h-90 trainer-card">
+              <img src="image/t3.jpg" class="card-img-top rounded-top" alt="Ravi Kumar">
               <div class="card-body text-center">
                 <h5 class="card-title mb-0">Ravi Kumar</h5>
                 <small class="text-muted">SEO Expert</small>
@@ -566,8 +668,8 @@
 
           <!-- Instructor 4 -->
           <div class="col-md-6">
-            <div class="card shadow border-0 rounded-3 h-100 trainer-card">
-              <img src="images/sneha.jpg" class="card-img-top rounded-top" alt="Sneha Patel">
+            <div class="card shadow border-0 rounded-3 h-90 trainer-card">
+              <img src="image/t4.jpg" class="card-img-top rounded-top" alt="Sneha Patel">
               <div class="card-body text-center">
                 <h5 class="card-title mb-0">Sneha Patel</h5>
                 <small class="text-muted">Content Strategist</small>
@@ -585,7 +687,10 @@
   <!-- TESTIMONIALS -->
 <section class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-5 fw-bold">Student Success Stories</h2>
+    <h2 class="text-center mb-5 fw-bold">Student Success Stories
+      <span class="d-block mx-auto mt-2" 
+                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
+    </h2>
 
     <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
       <div class="carousel-inner">
@@ -601,9 +706,9 @@
                 </div>
                 <p class="fst-italic">“I built my first client website in the 2nd month. Trainers are supportive and practical.”</p>
                 <div class="d-flex align-items-center justify-content-center mt-3">
-                  <img src="images/student1.jpg" class="rounded-circle me-3" width="50" height="50" alt="Shreya">
+                  <img src="image/s1.webp" class="rounded-circle me-3" width="50" height="50" alt="Shreya">
                   <div>
-                    <strong>Shreya D.</strong><br>
+                    <strong>Anish Dey.</strong><br>
                     <small class="text-muted">Web Design Student</small>
                   </div>
                 </div>
@@ -617,9 +722,9 @@
                 </div>
                 <p class="fst-italic">“Got freelance projects and learned to run ads profitably.”</p>
                 <div class="d-flex align-items-center justify-content-center mt-3">
-                  <img src="images/student2.jpg" class="rounded-circle me-3" width="50" height="50" alt="Manish">
+                  <img src="image/s2.jpg" class="rounded-circle me-3" width="50" height="50" alt="Manish">
                   <div>
-                    <strong>Manish K.</strong><br>
+                    <strong>Manish Kumar</strong><br>
                     <small class="text-muted">Marketing Student</small>
                   </div>
                 </div>
@@ -634,9 +739,9 @@
                 </div>
                 <p class="fst-italic">“Got freelance projects and learned to run ads profitably.”</p>
                 <div class="d-flex align-items-center justify-content-center mt-3">
-                  <img src="images/student2.jpg" class="rounded-circle me-3" width="50" height="50" alt="Manish">
+                  <img src="image/s3.jpeg" class="rounded-circle me-3" width="50" height="50" alt="Manish">
                   <div>
-                    <strong>Manish K.</strong><br>
+                    <strong>Sneha Lal</strong><br>
                     <small class="text-muted">Marketing Student</small>
                   </div>
                 </div>
@@ -656,9 +761,9 @@
                 </div>
                 <p class="fst-italic">“Thanks to the mentors, I cracked my first digital marketing job interview.”</p>
                 <div class="d-flex align-items-center justify-content-center mt-3">
-                  <img src="images/student3.jpg" class="rounded-circle me-3" width="50" height="50" alt="Aditi">
+                  <img src="image/s4.jpeg" class="rounded-circle me-3" width="50" height="50" alt="Aditi">
                   <div>
-                    <strong>Aditi P.</strong><br>
+                    <strong>Aditi Patra</strong><br>
                     <small class="text-muted">Digital Marketing Student</small>
                   </div>
                 </div>
@@ -672,9 +777,9 @@
                 </div>
                 <p class="fst-italic">“The curriculum is practical and industry-focused. It gave me confidence to start freelancing.”</p>
                 <div class="d-flex align-items-center justify-content-center mt-3">
-                  <img src="images/student4.jpg" class="rounded-circle me-3" width="50" height="50" alt="Priya">
+                  <img src="image/s5.jpeg" class="rounded-circle me-3" width="50" height="50" alt="Priya">
                   <div>
-                    <strong>Priya S.</strong><br>
+                    <strong>Priya Sen</strong><br>
                     <small class="text-muted">Freelance Student</small>
                   </div>
                 </div>
@@ -771,47 +876,52 @@
 </section>
 
 
-  <!-- FOOTER -->
-  <footer class="footer bg-dark text-light pt-5">
+<!-- FOOTER -->
+<footer class="footer bg-dark text-light pt-5 pb-4">
   <div class="container">
     <div class="row">
+
       <!-- About -->
       <div class="col-md-3 mb-4">
-        <h5 class="fw-bold text-warning">Roy Informatics</h5>
-        <p class="small text-soft-white">Practical web design & digital marketing training. Build skills, get projects, start freelancing.</p>
-        <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
+        <h5 class="fw-bold text-warning mb-3">Roy Informatics</h5>
+        <p class="small text-light opacity-75">
+          Practical web design & digital marketing training. Build skills, get projects, start freelancing.
+        </p>
+        <div class="social-icons mt-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
       </div>
 
       <!-- Quick Links -->
       <div class="col-md-3 mb-4">
-        <h6 class="fw-bold mb-3">Quick Links</h6>
+        <h6 class="fw-bold mb-4 text-uppercase">Quick Links</h6>
         <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#courses" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Home</a></li>
           <li class="mb-2"><a href="#courses" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Courses</a></li>
-          <li class="mb-2"><a href="#trainers" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Trainers</a></li>
+          <li class="mb-2"><a href="#about" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>About</a></li>
           <li><a href="#contact" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Contact</a></li>
         </ul>
       </div>
 
       <!-- Contact -->
       <div class="col-md-3 mb-4">
-        <h6 class="fw-bold mb-3">Contact</h6>
-        <p class="small mb-2"><i class="fa fa-phone me-2 text-warning"></i> +91 98765 43210</p>
-        <p class="small mb-2"><i class="fa fa-envelope me-2 text-warning"></i> info@royinformatics.com</p>
-        <p class="small"><i class="fa fa-map-marker-alt me-2 text-warning"></i> Bankura, West Bengal</p>
+        <h6 class="fw-bold mb-4 text-uppercase">Contact</h6>
+        <p class="small mb-3"><i class="fa fa-phone me-2 text-warning"></i> +91 98765 43210</p>
+        <p class="small mb-3"><i class="fa fa-envelope me-2 text-warning"></i> info@royinformatics.com</p>
+        <p class="small mb-0"><i class="fa fa-map-marker-alt me-2 text-warning"></i> Bankura, West Bengal</p>
       </div>
 
       <!-- Subscribe -->
       <div class="col-md-3 mb-4">
-        <h6 class="fw-bold mb-3">Subscribe</h6>
-        <p class="small text-soft-white">Enter your email address to register to our newsletter subscription</p>
-
+        <h6 class="fw-bold mb-4 text-uppercase">Subscribe</h6>
+        <p class="small opacity-75">
+          Enter your email to get our newsletter and updates.
+        </p>
         <form class="subscribe-box d-flex">
-          <input type="email" class="form-control form-control-sm me-2 rounded-pill" placeholder="Enter email" required>
-          <button class="btn btn-warning btn-sm rounded-pill">Subscribe</button>
+          <input type="email" class="form-control form-control-sm me-2 rounded-pill bg-dark text-light border-warning" placeholder="Enter email" required>
+          <button class="btn btn-warning btn-sm rounded-pill px-3">Subscribe</button>
         </form>
       </div>
     </div>
@@ -822,6 +932,7 @@
     </div>
   </div>
 </footer>
+
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

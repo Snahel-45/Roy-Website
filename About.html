@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Roy Informatics</title>
+  <!-- Bootstrap & Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root{
+    --brand:#ffb703; 
+      --dark:#0f1724;
+      --muted:#6b7280;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    body{background:#fff; color:var(--dark);}
+
+    /* topbar */
+    .topbar{background:#071028;color:#fff;font-size:14px;padding:6px 0;}
+    .topbar a{color:#ffb703;margin-left:12px;}
+
+    .social-icons a {
+  display: inline-block;
+  color: #fff;
+  font-size: 16px;
+  margin-right: 10px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 34px;
+  transition: all 0.3s ease;
+}
+.social-icons a:hover {
+  background: #ffb703;
+  color: #111;
+  border-color: #ffb703;
+}
+    /* navbar */
+    /* Brand logo hover */
+.brand-logo {
+  height: 45px;
+  width: 45px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+.brand-logo:hover {
+  transform: rotate(-5deg) scale(1.1);
+}
+
+/* Navbar */
+.custom-navbar {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Navbar links */
+.custom-navbar .nav-link {
+  position: relative;
+  padding: 8px 15px;
+  color: #333 !important;
+  transition: color 0.3s;
+}
+.custom-navbar .nav-link:hover {
+  color: #ffb703 !important;
+}
+
+/* Underline animation */
+.custom-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 0%;
+  height: 2px;
+  background: #ffb703;
+  transition: width 0.3s ease;
+}
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link.active::after {
+  width: 100%;
+}
+
+/* Enroll button */
+.enroll-btn {
+  box-shadow: 0 3px 10px rgba(255, 183, 3, 0.4);
+  transition: all 0.3s ease;
+}
+.enroll-btn:hover {
+  background: #333 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Hero About Section */
+.hero-about {
+  height: 65vh;
+  background: url('image/students-using-computers-stockcake.jpg') center/cover no-repeat fixed;
+  position: relative;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dark overlay for readability */
+.hero-about .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 30, 0.65); /* Midnight blue overlay */
+  z-index: 0;
+}
+
+/* Position container above overlay */
+.hero-about .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Title styling */
+.hero-about h1 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Breadcrumb Styling */
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.breadcrumb .btn {
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.breadcrumb .btn:hover:not(.disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.5);
+}
+
+.hover-shadow {
+    transition: all 0.3s ease-in-out;
+  }
+  .hover-shadow:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+  .icon-box {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    background: rgba(255,193,7,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+/* Cousre */
+
+  .course-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .course-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  }
+  .course-card img {
+    transition: transform 0.4s ease;
+      height: 220px;       /* Fixed height */
+  object-fit: cover;   /* Crop and fill without distortion */
+  border-top-left-radius: 0.5rem; 
+  border-top-right-radius: 0.5rem; /* keep rounded corners */
+  }
+  .course-card:hover img {
+    transform: scale(1.05);
+  }
+  .badge {
+    font-size: 0.85rem;
+    border-radius: 30px;
+  }
+
+    /* Why Choose Us */
+    .why-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .why-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Instructors */
+  .instructor-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.instructor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+.social-instructor {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  color: #333;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+.social-instructor:hover {
+  background: #ffb703;
+  color: #111;
+  transform: scale(1.2);
+}
+.instructor-card img {
+  border-width: 3px;
+  border-style: solid;
+  border-color: #ffb703;
+}
+    /* CTA */
+    .cta {
+      background: var(--brand);
+      color: #111;
+      padding: 50px 20px;
+      border-radius: 15px;
+    }
+    .cta h2 {
+      font-weight: 700;
+    }
+
+    /* Footer */
+   .footer-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.footer-link:hover {
+  color: #ffb703;
+  padding-left: 5px;
+}
+
+/* Social Icons */
+.social-icons a {
+  display: inline-block;
+  color: #fff;
+  font-size: 16px;
+  margin-right: 10px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 34px;
+  transition: all 0.3s ease;
+}
+.social-icons a:hover {
+  background: #ffb703;
+  color: #111;
+  border-color: #ffb703;
+}
+
+/* Subscribe Input */
+.subscribe-box input {
+  border: 1px solid #ffb703;
+  padding: 8px 12px;
+}
+.subscribe-box input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+/* Footer Background Height */
+.footer {
+  width: 100%;
+  min-height: 300px;
+  background: #111; /* darker than bg-dark */
+}
+
+  </style>
+</head>
+<body>
+
+   <div class="topbar">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <i class="fa fa-phone me-2"></i> +91 98765 43210 
+        <i class="fa fa-envelope ms-3 me-2"></i> info@royinformatics.com 
+        <i class="fa fa-map-marker-alt ms-3 me-2"></i> Bankura, West Bengal
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top custom-navbar">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img src="image/logo.png" 
+           alt="logo" class="brand-logo">
+      <div class="d-none d-sm-block">
+        <div class="brand-text">Roy <strong>Informatics</strong></div>
+        <small class="text-muted" style="font-size:11px">Web & Digital Training</small>
+      </div>
+    </a>
+
+    <!-- Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu -->
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link " href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-lg-3">
+          <a class="btn btn-warning btn-sm rounded-pill px-3 fw-bold enroll-btn" href="#contact">
+            Enroll Now
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+  <!-- HERO -->
+<!-- 🌟 Taller About Us Hero Section -->
+<section class="hero w-100 mt-0" 
+  style="background: url('image/students-using-computers-stockcake.jpg') center/cover no-repeat fixed; 
+         position: relative; min-height: 70vh; display: flex; align-items: center;">
+  
+  <!-- Dark overlay -->
+  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,30,0.6);"></div>
+
+  <div class="container text-center text-white position-relative">
+    <h1 class="display-3 fw-bold">About Us</h1>
+    <p class="lead mb-3">Learn more about Roy Informatics</p>
+    
+    <p class="lead mt-3 mb-0">
+      <a href="index.html" class="btn btn-warning btn-sm rounded-pill px-3">
+        <i class="fa fa-home"></i> Home
+      </a>
+      <i class="fa-solid fa-angles-right mx-2"></i>
+      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">About Us</span>
+    </p>
+  </div>
+</section>
+
+
+
+
+  <!-- INTRO -->
+  <!-- 🌟 About / Welcome Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      
+      <!-- Left: Stylish Image -->
+      <div class="col-md-6 text-center">
+        <img src="image/training.avif" 
+             alt="Roy Informatics Training" 
+             class="img-fluid rounded-4 shadow-lg"
+             style="max-height:400px; object-fit:cover;">
+      </div>
+
+      <!-- Right: Content -->
+      <div class="col-md-6">
+        <h2 class="fw-bold mb-3">
+          Welcome to <span class="text-warning">Roy Informatics</span>
+          
+        </h2>
+        <p class="text-muted fs-5 mb-3" style="line-height:1.8;">
+          At <span class="fw-bold text-dark">Roy Informatics</span>, we provide 
+          practical training</span> in 
+          <strong>Web Designing</strong> and <strong>Digital Marketing</strong>. 
+          Our courses are designed to prepare students with real-world skills, 
+          hands-on projects, and <span class="text-success fw-semibold">career support</span> 
+          so they can excel in <u>freelancing</u>, <u>jobs</u>, and <u>entrepreneurship</u>.
+        </p>
+
+        <!-- Call-to-action -->
+        <a href="#courses" class="btn btn-warning px-4 rounded-pill shadow-sm">
+          Explore Courses
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- MISSION & VISION -->
+<!-- 🌟 Mission & Vision Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Our <span class="text-warning">Mission</span> & <span class="text-primary">Vision</span></h2>
+      <p class="text-muted">The guiding principles that define Roy Informatics</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Mission -->
+      <div class="col-md-6">
+        <div class="p-4 bg-white shadow-sm rounded-4 h-100 text-center hover-shadow">
+          <div class="icon-box mb-3">
+            <i class="fa-solid fa-bullseye fa-3x text-warning"></i>
+          </div>
+          <h5 class="fw-bold mb-3">Our Mission</h5>
+          <p class="text-muted">
+            At <strong>Roy Informatics</strong>, our mission is to transform education by combining
+            <span class="text-success">practical training</span> with 
+            <span class="text-primary">real-world projects</span>, ensuring that every learner develops
+            the confidence to succeed in the digital era.
+          </p>
+          <p class="text-muted">
+            We aim to bridge the gap between <strong>theory and practice</strong>, creating professionals who are
+            not only technically skilled but also industry-ready. By fostering innovation, creativity, and 
+            problem-solving abilities, we empower our students to take on opportunities in freelancing,
+            corporate careers, and entrepreneurship.
+          </p>
+          <p class="text-muted mb-0">
+            Our mission is to build a <span class="fw-bold text-warning">community of lifelong learners</span> who
+            can adapt to evolving technologies and contribute to global digital transformation.
+          </p>
+        </div>
+      </div>
+
+      <!-- Vision -->
+      <div class="col-md-6">
+        <div class="p-4 bg-white shadow-sm rounded-4 h-100 text-center hover-shadow">
+          <div class="icon-box mb-3">
+            <i class="fa-solid fa-eye fa-3x text-primary"></i>
+          </div>
+          <h5 class="fw-bold mb-3">Our Vision</h5>
+          <ul class="list-unstyled text-muted text-start d-inline-block">
+            <li class="mb-2"><i class="fa-solid fa-check-circle text-warning me-2"></i> Become a leading IT training institute globally.</li>
+            <li class="mb-2"><i class="fa-solid fa-check-circle text-warning me-2"></i> Shape future-ready professionals with modern skills.</li>
+            <li class="mb-2"><i class="fa-solid fa-check-circle text-warning me-2"></i> Foster innovation, creativity & digital growth.</li>
+            <li class="mb-2"><i class="fa-solid fa-check-circle text-warning me-2"></i> Partner with industries for real-world exposure.</li>
+            <li><i class="fa-solid fa-check-circle text-warning me-2"></i> Build a strong global learning & networking community.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- WHY CHOOSE US -->
+  <section class="py-5">
+    <div class="container text-center">
+      <h3 class="fw-bold mb-5">Why Choose <span class="text-warning">Roy Informatics</span>?
+    <span class="d-block mx-auto mt-2" 
+                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span></h3>
+      <div class="row g-4">
+        <div class="col-md-3 col-sm-6">
+          <div class="why-card">
+            <i class="fa-solid fa-diagram-project fa-2x text-primary mb-3"></i>
+            <h6 class="fw-bold">Practical Projects</h6>
+            <p class="small text-muted">Hands-on learning with real-world projects.</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="why-card">
+            <i class="fa-solid fa-user-tie fa-2x text-success mb-3"></i>
+            <h6 class="fw-bold">Career Support</h6>
+            <p class="small text-muted">Resume building & interview preparation.</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="why-card">
+            <i class="fa-solid fa-chalkboard-user fa-2x text-warning mb-3"></i>
+            <h6 class="fw-bold">Face-to-face Teaching</h6>
+            <p class="small text-muted">Interactive classroom & personalized sessions.</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="why-card">
+            <i class="fa-solid fa-headset fa-2x text-danger mb-3"></i>
+            <h6 class="fw-bold">24/7 Support</h6>
+            <p class="small text-muted">Always available to guide you anytime.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses" class="py-5 bg-light">
+  <div class="container">
+    <h4 class="mb-5 fw-bold text-center">Top Popular Courses
+        <span class="d-block mx-auto mt-2" 
+                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
+    </h4>
+    <div class="row g-4">
+
+      <!-- Course 1 -->
+      <div class="col-md-4">
+        <div class="card course-card h-100 border-0 shadow-sm position-relative overflow-hidden">
+          <div class="position-relative">
+            <img src="image/frontend.png" class="card-img-top" alt="Frontend Web Design">
+            <span class="badge text-dark position-absolute top-0 start-0 m-3 px-3 py-2 fw-bold" style="background: linear-gradient(45deg,#ffb703,#fb8500);">Web Design</span>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold">Frontend Web Design</h5>
+            <p class="card-text small text-muted">Learn HTML, CSS, JavaScript, and Bootstrap to build modern, responsive websites.</p>
+            <a href="#contact" class="btn btn-warning w-100 rounded-pill shadow-sm">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 2 -->
+      <div class="col-md-4">
+        <div class="card course-card h-100 border-0 shadow-sm position-relative overflow-hidden">
+          <div class="position-relative">
+            <img src="image/digital marketing.jpeg" class="card-img-top" alt="Digital Marketing">
+            <span class="badge text-white position-absolute top-0 start-0 m-3 px-3 py-2 fw-bold" style="background: linear-gradient(45deg,#06d6a0,#1b9aaa);">Marketing</span>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold">Digital Marketing</h5>
+            <p class="card-text small text-muted">Master SEO, Google Ads, Facebook Ads, and Social Media strategies to grow businesses.</p>
+            <a href="#contact" class="btn btn-warning w-100 rounded-pill shadow-sm">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 3 -->
+      <div class="col-md-4">
+        <div class="card course-card h-100 border-0 shadow-sm position-relative overflow-hidden">
+          <div class="position-relative">
+            <img src="image/wordpress.png" class="card-img-top" alt="WordPress & Freelancing">
+            <span class="badge text-white position-absolute top-0 start-0 m-3 px-3 py-2 fw-bold" style="background: linear-gradient(45deg,#8338ec,#3a0ca3);">WordPress</span>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold">WordPress & Freelancing</h5>
+            <p class="card-text small text-muted">Build WordPress websites and learn freelancing skills to earn online from real projects.</p>
+            <a href="#contact" class="btn btn-warning w-100 rounded-pill shadow-sm">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Load More Button -->
+    <div class="text-center mt-5">
+      <a href="courses.html" class="btn btn-dark btn-lg rounded-pill shadow-lg px-5 py-2">
+        Load More Courses <i class="fa fa-arrow-right ms-2"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+  <!-- INSTRUCTORS -->
+<section class="py-5 bg-info">
+  <div class="container text-center">
+    <h3 class="fw-bold mb-5">Meet Our Expert Instructors</h3>
+
+    <div id="instructorsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+      <div class="carousel-inner">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="row justify-content-center g-4">
+            <div class="col-lg-4 col-md-6 col-12">
+              <div class="instructor-card p-4 bg-white rounded-4 shadow-lg text-center hover-shadow">
+                <img src="image/t1.jpg" class="rounded-circle border border-warning mb-3" style="width:130px; height:130px; object-fit:cover;">
+                <h5 class="fw-bold">Amit Roy</h5>
+                <p class="text-muted small mb-3">Web Designer</p>
+                <div class="d-flex justify-content-center gap-2 mb-3">
+                  <a href="#" class="social-instructor"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="social-instructor"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" class="social-instructor"><i class="fab fa-twitter"></i></a>
+                </div>
+                <a href="#contact" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12">
+              <div class="instructor-card p-4 bg-white rounded-4 shadow-lg text-center hover-shadow">
+                <img src="image/t2.jpg" class="rounded-circle border border-warning mb-3" style="width:130px; height:130px; object-fit:cover;">
+                <h5 class="fw-bold">Priya Sen</h5>
+                <p class="text-muted small mb-3">Marketing Lead</p>
+                <div class="d-flex justify-content-center gap-2 mb-3">
+                  <a href="#" class="social-instructor"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="social-instructor"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" class="social-instructor"><i class="fab fa-twitter"></i></a>
+                </div>
+                <a href="#contact" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12">
+              <div class="instructor-card p-4 bg-white rounded-4 shadow-lg text-center hover-shadow">
+                <img src="image/t3.jpg" class="rounded-circle border border-warning mb-3" style="width:130px; height:130px; object-fit:cover;">
+                <h5 class="fw-bold">Ravi Kumar</h5>
+                <p class="text-muted small mb-3">SEO Expert</p>
+                <div class="d-flex justify-content-center gap-2 mb-3">
+                  <a href="#" class="social-instructor"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="social-instructor"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" class="social-instructor"><i class="fab fa-twitter"></i></a>
+                </div>
+                <a href="#contact" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="row justify-content-center g-4">
+            <div class="col-lg-4 col-md-6 col-12">
+              <div class="instructor-card p-4 bg-white rounded-4 shadow-lg text-center hover-shadow">
+                <img src="image/t4.jpg" class="rounded-circle border border-warning mb-3" style="width:130px; height:130px; object-fit:cover;">
+                <h5 class="fw-bold">Sneha Patel</h5>
+                <p class="text-muted small mb-3">Full Stack Developer</p>
+                <div class="d-flex justify-content-center gap-2 mb-3">
+                  <a href="#" class="social-instructor"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="social-instructor"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" class="social-instructor"><i class="fab fa-twitter"></i></a>
+                </div>
+                <a href="#contact" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12">
+              <div class="instructor-card p-4 bg-white rounded-4 shadow-lg text-center hover-shadow">
+                <img src="https://randomuser.me/api/portraits/women/70.jpg" class="rounded-circle border border-warning mb-3" style="width:130px; height:130px; object-fit:cover;">
+                <h5 class="fw-bold">Rina Ghosh</h5>
+                <p class="text-muted small mb-3">Digital Marketing Expert</p>
+                <div class="d-flex justify-content-center gap-2 mb-3">
+                  <a href="#" class="social-instructor"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="social-instructor"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" class="social-instructor"><i class="fab fa-twitter"></i></a>
+                </div>
+                <a href="#contact" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-12">
+              <div class="instructor-card p-4 bg-white rounded-4 shadow-lg text-center hover-shadow">
+                <img src="https://randomuser.me/api/portraits/men/40.jpg" class="rounded-circle border border-warning mb-3" style="width:130px; height:130px; object-fit:cover;">
+                <h5 class="fw-bold">Anil Roy</h5>
+                <p class="text-muted small mb-3">SEO & Analytics Expert</p>
+                <div class="d-flex justify-content-center gap-2 mb-3">
+                  <a href="#" class="social-instructor"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="social-instructor"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" class="social-instructor"><i class="fab fa-twitter"></i></a>
+                </div>
+                <a href="#contact" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- CALL TO ACTION -->
+  <section class="cta container my-5 text-center">
+    <h2>Ready to Start Your Career with <span class="text-dark">Roy Informatics</span>?</h2>
+    <p class="mb-4">Join our practical courses today and step into the world of freelancing, jobs, and entrepreneurship.</p>
+    <a href="contact.html" class="btn btn-dark rounded-pill px-4">Join Now</a>
+  </section>
+
+  <!-- FOOTER -->
+  <<!-- FOOTER -->
+<footer class="footer bg-dark text-light pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+
+      <!-- About -->
+      <div class="col-md-3 mb-4">
+        <h5 class="fw-bold text-warning mb-3">Roy Informatics</h5>
+        <p class="small text-light opacity-75">
+          Practical web design & digital marketing training. Build skills, get projects, start freelancing.
+        </p>
+        <div class="social-icons mt-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold mb-4 text-uppercase">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#courses" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Home</a></li>
+          <li class="mb-2"><a href="#courses" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Courses</a></li>
+          <li class="mb-2"><a href="#about" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>About</a></li>
+          <li><a href="#contact" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold mb-4 text-uppercase">Contact</h6>
+        <p class="small mb-3"><i class="fa fa-phone me-2 text-warning"></i> +91 98765 43210</p>
+        <p class="small mb-3"><i class="fa fa-envelope me-2 text-warning"></i> info@royinformatics.com</p>
+        <p class="small mb-0"><i class="fa fa-map-marker-alt me-2 text-warning"></i> Bankura, West Bengal</p>
+      </div>
+
+      <!-- Subscribe -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold mb-4 text-uppercase">Subscribe</h6>
+        <p class="small opacity-75">
+          Enter your email to get our newsletter and updates.
+        </p>
+        <form class="subscribe-box d-flex">
+          <input type="email" class="form-control form-control-sm me-2 rounded-pill bg-dark text-light border-warning" placeholder="Enter email" required>
+          <button class="btn btn-warning btn-sm rounded-pill px-3">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="border-top border-secondary mt-4 pt-3 text-center small">
+      &copy; <span id="year"></span> <span class="text-warning">Roy Informatics</span> — All rights reserved.
+    </div>
+  </div>
+</footer>
+  <!-- JS -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
