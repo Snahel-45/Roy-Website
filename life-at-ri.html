@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life at Roy Info</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --brand:#ffb703; 
+      --dark:#0f1724;
+      --muted:#6b7280;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    body { background:#fff; color:var(--dark); }
+    .topbar {
+        background: #071028;
+        color: #fff;
+        font-size: 14px;
+        padding: 6px 0;
+      }
+      .topbar a {
+        color: #ffb703;
+        margin-left: 12px;
+      }
+
+      .social-icons a {
+        display: inline-block;
+        color: #fff;
+        font-size: 16px;
+        margin-right: 10px;
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 34px;
+        transition: all 0.3s ease;
+      }
+
+      .brand-logo {
+        height: 45px;
+        width: 45px;
+        border-radius: 8px;
+        transition: transform 0.3s;
+      }
+      .brand-logo:hover {
+        transform: rotate(-5deg) scale(1.1);
+      }
+
+      /* Navbar */
+      .custom-navbar {
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+      /* Remove blue focus outline and box-shadow on navbar links */
+      .navbar .nav-link:focus,
+      .navbar .nav-link:active,
+      .navbar .dropdown-toggle:focus,
+      .navbar .dropdown-item:focus {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+
+      .navbar-nav .nav-link {
+        font-size: 1.05rem; /* default ~1rem, adjust as needed */
+        font-weight: 500; /* makes it a bit bolder */
+        padding: 0.7rem 1rem; /* increase clickable area */
+      }
+
+      /* Add spacing between nav items */
+      .navbar-nav .nav-item {
+        margin-left: 12px; /* space between items */
+        margin-right: 12px;
+      }
+
+      /* Optional: Make dropdown font slightly larger */
+      .dropdown-menu .dropdown-item {
+        font-size: 0.95rem;
+        padding: 0.6rem 1rem;
+      }
+
+      /* Navbar links */
+      .custom-navbar .nav-link {
+        position: relative;
+        padding: 8px 15px;
+        color: #333 !important;
+        transition: color 0.3s;
+      }
+      .custom-navbar .nav-link:hover {
+        color: #ffb703 !important;
+      }
+
+      /* Underline animation */
+      .custom-navbar .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 2px;
+        width: 0%;
+        height: 2px;
+        background: #ffb703;
+        transition: width 0.3s ease;
+      }
+      .custom-navbar .nav-link:hover::after,
+      .custom-navbar .nav-link.active::after {
+        width: 100%;
+      }
+
+      /* Enroll button */
+      .enroll-btn {
+        box-shadow: 0 3px 10px rgba(255, 183, 3, 0.4);
+        transition: all 0.3s ease;
+      }
+      .enroll-btn:hover {
+        background: #333 !important;
+        color: #fff !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .social-icons a:hover {
+        background: #ffb703;
+        color: #111;
+        border-color: #ffb703;
+      }
+    /* Hero Section */
+    .life-hero {
+      background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.8)), 
+                  url('images/life-banner.jpg') center/cover no-repeat;
+      height: 70vh;
+    }
+    .life-hero h1 { text-shadow: 0 4px 15px rgba(0,0,0,0.6); }
+    .life-hero p { font-size: 1.2rem; }
+
+    .about-life-section {
+    background: #ffeb99;
+    padding: 80px 0;
+    position: relative;
+  }
+
+  .section-heading {
+    font-size: 2.2rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-heading::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background: #ffc107;
+    display: block;
+    margin: 12px auto 0;
+    border-radius: 2px;
+    animation: expandLine 1s ease forwards;
+  }
+
+  @keyframes expandLine {
+    from { width: 0; }
+    to { width: 60px; }
+  }
+
+  .brand-text {
+    color: #007bff;
+    font-weight: 600;
+  }
+
+  .highlight {
+    color: #28a745;
+    font-weight: 600;
+  }
+
+  .fade-in-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.2s ease forwards;
+    animation-delay: 0.3s;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+    /* Cards */
+    .rounded-4 { border-radius: 1.2rem; }
+
+    /* Buttons */
+    .btn-warning {
+      background: var(--brand);
+      border: none;
+      transition: 0.3s ease-in-out;
+    }
+    .btn-warning:hover {
+      box-shadow: 0 0 20px rgba(255,193,7,0.7); 
+      transform: scale(1.05);
+    }
+     .journey-section {
+    background: linear-gradient(135deg, #0f1724, #1e293b);
+  }
+  .journey-box {
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease-in-out;
+  }
+  .journey-box:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 25px rgba(255, 183, 3, 0.3);
+  }
+  .journey-box h3 {
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(255, 183, 3, 0.6);
+  }
+
+   .student-reviews {
+    background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  }
+
+  .review-card {
+    background: #fff;
+    border-left: 5px solid var(--brand);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+  }
+
+  .review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255, 183, 3, 0.3);
+    background: linear-gradient(135deg, #fff, #fff7e6);
+  }
+
+  .review-card i {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    opacity: 0.6;
+  }
+
+  .review-card p {
+    font-style: italic;
+  }
+
+    .highlights-section {
+    background: linear-gradient(135deg, #f9f9f9, #ffffff);
+  }
+
+  .highlight-card {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .highlight-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .highlight-card:hover img {
+    transform: scale(1.1);
+  }
+
+  .highlight-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+    color: #fff;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .highlight-card:hover .highlight-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .highlight-overlay h5 {
+    margin-bottom: 5px;
+    color: #ffc107;
+  }
+  /* Section Background */
+  .join-family-section {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Floating gradient circles for extra style */
+  .join-family-section::before,
+  .join-family-section::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .join-family-section::before {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    left: -50px;
+  }
+
+  .join-family-section::after {
+    width: 150px;
+    height: 150px;
+    bottom: -40px;
+    right: -40px;
+    animation-delay: 3s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(20px); }
+  }
+
+  /* Title */
+  .section-title {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  }
+
+  /* Highlight words */
+  .highlight {
+    font-weight: bold;
+    color: #fff3cd;
+  }
+
+  /* Fade in effect */
+  .fade-in-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.2s ease forwards;
+    animation-delay: 0.4s;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Glowing button */
+  .btn-glow {
+    background: #ffc107;
+    border: none;
+    padding: 12px 40px;
+    font-size: 1.2rem;
+    color: #111;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .btn-glow:hover {
+    background: #ffda4d;
+    box-shadow: 0 0 20px rgba(255,193,7,0.7), 0 0 40px rgba(255,193,7,0.5);
+    transform: scale(1.05);
+  }
+         .footer-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.footer-link:hover {
+  color: #ffb703;
+  padding-left: 5px;
+}
+
+/* Social Icons */
+.social-icons a {
+  display: inline-block;
+  color: #fff;
+  font-size: 16px;
+  margin-right: 10px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 34px;
+  transition: all 0.3s ease;
+}
+.social-icons a:hover {
+  background: #ffb703;
+  color: #111;
+  border-color: #ffb703;
+}
+
+/* Subscribe Input */
+.subscribe-box input {
+  border: 1px solid #ffb703;
+  padding: 8px 12px;
+}
+.subscribe-box input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+.cta {
+      background: var(--brand);
+      color: #111;
+      padding: 50px 20px;
+      border-radius: 15px;
+    }
+    .cta h2 {
+      font-weight: 700;
+    }
+/* Footer Background Height */
+.footer {
+  width: 100%;
+  min-height: 300px;
+  background: #111; /* darker than bg-dark */
+}
+
+ .subscribe-box{background:#fff;padding:1rem;border-radius:8px;display:flex;gap:8px}
+    .subscribe-box input{flex:1;border:none;outline:none;padding:0.6rem}
+    .subscribe-box button{white-space:nowrap}
+
+  </style>
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div class="topbar py-2 bg-dark text-white">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    
+    <!-- Left Info -->
+    <div class="contact-info text-center text-md-start mb-2 mb-md-0">
+      <i class="fa fa-phone me-2"></i> +91 98765 43210 
+      <span class="d-none d-sm-inline">
+        <i class="fa fa-envelope ms-3 me-2"></i> info@royinformatics.com
+      </span>
+      <span class="d-none d-lg-inline">
+        <i class="fa fa-map-marker-alt ms-3 me-2"></i> Bankura, West Bengal
+      </span>
+    </div>
+
+    <!-- Right Social Icons -->
+    <div class="social-icons text-center">
+      <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+  </div>
+</div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top custom-navbar">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img src="image/logo.png" 
+           alt="logo" class="brand-logo">
+      <div class="d-none d-sm-block">
+        <div class="brand-text">Roy <strong>Informatics</strong></div>
+        <small class="text-muted" style="font-size:11px">Web & Digital Training</small>
+      </div>
+    </a>
+
+    <!-- Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu -->
+    <div class="collapse navbar-collapse" id="navMenu">
+  <ul class="navbar-nav ms-auto align-items-lg-center">
+
+    <!-- Home -->
+    <li class="nav-item">
+      <a class="nav-link" href="index.html">Home</a>
+    </li>
+<!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Packages</a>
+            <ul class="dropdown-menu p-3 text-white rounded-0">
+              <li><a href="varanasi.html" class="dropdown-item ">Spiritual Triangle Tour</a></li> -->
+    <!-- About with Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        About
+      </a>
+      <ul class="dropdown-menu p-3 border-0 rounded-3">
+        <li><a class="dropdown-item" href="who-we-are.html">Who We Are</a></li>
+        <li><a class="dropdown-item" href="training-reviews.html">Training Reviews</a></li>
+        <li><a class="dropdown-item" href="trainers.html">Our Trainers</a></li>
+        <li><a class="dropdown-item" href="placement-record.html">Placement Record</a></li>
+      </ul>
+    </li>
+    <!-- Training with Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="trainingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Training
+      </a>
+      <ul class="dropdown-menu p-3 border-0 rounded-3" aria-labelledby="trainingDropdown">
+        <li><a class="dropdown-item" href="courses.html">Our Programs</a></li>
+        <li><a class="dropdown-item" href="enrollment.html">Enrollment</a></li>
+        <li><a class="dropdown-item" href="upcoming-batch.html">Upcoming Batch</a></li>
+      </ul>
+    </li>
+
+    <!-- Select Centers with Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="centersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Select Centers
+      </a>
+      <ul class="dropdown-menu p-3 border-0 rounded-3" aria-labelledby="centersDropdown">
+        <li><a class="dropdown-item" href="center-kolkata.html">Kolkata</a></li>
+        <li><a class="dropdown-item" href="center-mumbai.html">Mumbai</a></li>
+        <li><a class="dropdown-item" href="center-delhi.html">Delhi</a></li>
+        <li><a class="dropdown-item" href="center-online.html">Online Center</a></li>
+      </ul>
+    </li>
+
+    <!-- Resources with Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Resources
+      </a>
+      <ul class="dropdown-menu border-0 rounded-3" aria-labelledby="resourcesDropdown">
+        <li><a class="dropdown-item" href="institutional-program.html">Institutional Program</a></li>
+        <li><a class="dropdown-item" href="corporate-training.html">Corporate Training Program</a></li>
+        <li><a class="dropdown-item" href="certification.html">Certification</a></li>
+        <li><a class="dropdown-item" href="life-at-ri.html">Life @ Roy Info</a></li>
+        <li><a class="dropdown-item" href="why-choose-ri.html">Why Choose Roy info</a></li>
+      </ul>
+    </li>
+
+    <!-- Contact -->
+    <li class="nav-item">
+      <a class="nav-link" href="contact.html">Contact</a>
+    </li>
+
+    <!-- Enroll Now Button -->
+    <li class="nav-item ms-lg-3">
+      <a class="btn btn-warning btn-sm rounded-pill px-3 fw-bold enroll-btn" href="enrollment.html">
+        Enroll Now
+      </a>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+    <!-- HERO -->
+<!-- 🌟 Taller About Us Hero Section -->
+<section class="hero w-100 mt-0" 
+  style="background: url('image/students-using-computers-stockcake.jpg') center/cover no-repeat fixed; 
+         position: relative; min-height: 70vh; display: flex; align-items: center;">
+  
+  <!-- Dark overlay -->
+  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,30,0.6);"></div>
+
+  <div class="container text-center text-white position-relative">
+    <h1 class="display-3 fw-bold">Life At Roy Info</h1>
+    <p class="lead mb-3">More than just training – it’s a journey of growth, innovation, and success.</p>
+    
+    <p class="lead mt-3 mb-0">
+      <a href="index.html" class="btn btn-warning btn-sm rounded-pill px-3">
+        <i class="fa fa-home"></i> Home
+      </a>
+      <i class="fa-solid fa-angles-right mx-2"></i>
+      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">Resources</span>
+      <i class="fa-solid fa-angles-right mx-2"></i>
+      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">Life @ Roy Info</span>
+    </p>
+  </div>
+</section>
+
+  <section class="py-5 about-life-section">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-3 section-heading">💡 Experience Beyond Learning</h2>
+    <p class="text-muted col-lg-8 mx-auto lead fade-in-text">
+      At <span class="brand-text">Roy Info</span>, learning goes beyond books and lectures.  
+      Our environment is designed to <b>inspire, innovate, and empower</b> every learner.  
+      From interactive workshops, hackathons, and cultural events to one-on-one mentorship –  
+      life here is vibrant and full of opportunities.
+    </p>
+  </div>
+</section>
+
+  <!-- Gallery / Highlights -->
+<section class="py-5 highlights-section">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-5">🌟 Highlights of Roy Info Life</h2>
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="highlight-card shadow rounded-4 overflow-hidden">
+          <img src="image/s3.jpeg" class="img-fluid" alt="Event 1">
+          <div class="highlight-overlay">
+            <h5 class="fw-bold">Tech Fest</h5>
+            <p>Exciting hackathons, workshops, and coding challenges.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="highlight-card shadow rounded-4 overflow-hidden">
+          <img src="images/event2.jpg" class="img-fluid" alt="Event 2">
+          <div class="highlight-overlay">
+            <h5 class="fw-bold">Cultural Events</h5>
+            <p>Music, fun, and creativity bringing students together.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="highlight-card shadow rounded-4 overflow-hidden">
+          <img src="images/event3.jpg" class="img-fluid" alt="Event 3">
+          <div class="highlight-overlay">
+            <h5 class="fw-bold">Corporate Workshops</h5>
+            <p>Real-world learning with top industry mentors.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Testimonials -->
+ <!-- Hear from Our Students -->
+<section class="py-5 student-reviews">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-5">🎤 Hear from Our Students</h2>
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="review-card p-4 rounded-4 shadow h-100">
+          <!-- <i class="fa-solid fa-quote-left fa-2x text-warning mb-3"></i> -->
+          <p class="text-muted">“ Roy Info not only trained me technically but also gave me confidence for interviews and teamwork.”</p>
+          <h6 class="fw-bold mt-3 text-dark">– Priya Sharma</h6>
+          <p class="small text-muted">Placed at Infosys</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="review-card p-4 rounded-4 shadow h-100">
+          <!-- <i class="fa-solid fa-quote-left fa-2x text-warning mb-3"></i> -->
+          <p class="text-muted">“The culture is so vibrant! Hackathons and live projects made learning fun and real.”</p>
+          <h6 class="fw-bold mt-3 text-dark">– Ankit Verma</h6>
+          <p class="small text-muted">Full Stack Developer</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="review-card p-4 rounded-4 shadow h-100">
+          <!-- <i class="fa-solid fa-quote-left fa-2x text-warning mb-3"></i> -->
+          <p class="text-muted">“Life at Roy Info was the turning point of my career. I made friends, mentors, and a strong career base.”</p>
+          <h6 class="fw-bold mt-3 text-dark">– Sneha Roy</h6>
+          <p class="small text-muted">Digital Marketing Specialist</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Fun Facts -->
+ <section class="py-5 journey-section text-white">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-5">🚀 Our Journey So Far</h2>
+    <div class="row g-4">
+      
+      <div class="col-md-3">
+        <div class="journey-box p-4 rounded-4 shadow">
+          <i class="fa-solid fa-graduation-cap fa-2x mb-3 text-warning"></i>
+          <h3 class="fw-bold text-warning">2445+</h3>
+          <p class="mb-0">Batches Completed</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="journey-box p-4 rounded-4 shadow">
+          <i class="fa-solid fa-user-check fa-2x mb-3 text-warning"></i>
+          <h3 class="fw-bold text-warning">80%</h3>
+          <p class="mb-0">Students Placed</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="journey-box p-4 rounded-4 shadow">
+          <i class="fa-solid fa-certificate fa-2x mb-3 text-warning"></i>
+          <h3 class="fw-bold text-warning">30+</h3>
+          <p class="mb-0">Certifications Offered</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="journey-box p-4 rounded-4 shadow">
+          <i class="fa-solid fa-building fa-2x mb-3 text-warning"></i>
+          <h3 class="fw-bold text-warning">650+</h3>
+          <p class="mb-0">Corporate Tie-ups</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+  <!-- Call To Action -->
+  <!-- Join Roy Info Family -->
+<section class="py-5 join-family-section text-white text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-3 section-title">Be Part of Roy Info Family 🎉</h2>
+    <p class="lead mb-4 fade-in-text">
+      Join us today and experience a journey of <span class="highlight">growth</span>, 
+      <span class="highlight">success</span>, and <span class="highlight">community</span>.
+    </p>
+    <a href="enrollment.html" class="btn btn-glow btn-lg fw-bold rounded-pill shadow-lg">✨ Join Now ✨</a>
+  </div>
+</section>
+ <!-- FOOTER -->
+   <footer class="footer bg-dark text-light pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+
+      <!-- About -->
+      <div class="col-md-3 mb-4">
+        <h5 class="fw-bold text-warning mb-3">Roy Informatics</h5>
+        <p class="small text-light opacity-75">
+         Practical web design & digital marketing training. Gain hands-on skills, work on live projects, start freelancing, and prepare yourself for high-paying career opportunities in the digital world.
+        </p>
+        <div class="social-icons mt-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold mb-4 text-uppercase">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="index.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Home</a></li>
+          <li class="mb-2"><a href="courses.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Our Programs</a></li>
+          <li class="mb-2"><a href="enrollment.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Enrollment</a></li>
+          <li class="mb-2"><a href="training-reviews.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Training Reviews</a></li>
+          <li class="mb-2"><a href="who-we-are.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Who we are</a></li>
+          <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold mb-4 text-uppercase">Contact</h6>
+        <p class="small mb-3"><i class="fa fa-phone me-2 text-warning"></i> +91 98765 43210</p>
+        <p class="small mb-3"><i class="fa fa-envelope me-2 text-warning"></i> info@royinformatics.com</p>
+        <p class="small mb-0"><i class="fa fa-map-marker-alt me-2 text-warning"></i> Bankura, West Bengal</p>
+      </div>
+
+      <!-- Subscribe -->
+     <div class="col-md-3 mb-4">
+  <h6 class="fw-bold mb-3 text-uppercase">Corporate Office</h6>
+  <p class="small mb-1">
+    🏢 6/1, Sarat Chatterjee Ave, near Menoka Cinema, Lake Range, Kalighat, Kolkata, West Bengal 700029
+  </p>
+  <p class="small mb-1">📞 +91 8800505151</p>
+  <p class="small mb-3">📧 info@royinformatics.com</p>
+
+  <h6 class="fw-bold mb-3 text-uppercase">Subscribe & Follow Us</h6>
+
+  <div class="social-icons">
+    <a href="#" class="me-2 text-warning"><i class="fab fa-facebook fa-lg"></i></a>
+    <a href="#" class="me-2 text-warning"><i class="fab fa-twitter fa-lg"></i></a>
+    <a href="#" class="me-2 text-warning"><i class="fab fa-instagram fa-lg"></i></a>
+    <a href="#" class="text-warning"><i class="fab fa-linkedin fa-lg"></i></a>
+  </div>
+</div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="border-top border-secondary mt-4 pt-3 text-center small">
+      &copy; <span id="year"></span> <span class="text-warning">Roy Informatics</span> — All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('formAlert').classList.remove('d-none');
+  this.reset();
+});
+</script>
+ <script>
+// Prevent click from immediately closing dropdown on hover
+document.querySelectorAll('.navbar .dropdown').forEach(function (dropdown) {
+  dropdown.addEventListener('mouseover', function () {
+    const menu = this.querySelector('.dropdown-menu');
+    if (menu) {
+      new bootstrap.Dropdown(this.querySelector('.dropdown-toggle')).show();
+    }
+  });
+  dropdown.addEventListener('mouseleave', function () {
+    const menu = this.querySelector('.dropdown-menu');
+    if (menu) {
+      new bootstrap.Dropdown(this.querySelector('.dropdown-toggle')).hide();
+    }
+  });
+});
+    </script>
+</body>
+</html>

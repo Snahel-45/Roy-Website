@@ -43,6 +43,32 @@
   font-weight: 500;
   letter-spacing: 0.5px;
 }
+/* Remove blue focus outline and box-shadow on navbar links */
+.navbar .nav-link:focus,
+.navbar .nav-link:active,
+.navbar .dropdown-toggle:focus,
+.navbar .dropdown-item:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.05rem;   /* default ~1rem, adjust as needed */
+    font-weight: 500;     /* makes it a bit bolder */
+    padding: 0.7rem 1rem; /* increase clickable area */
+  }
+
+  /* Add spacing between nav items */
+  .navbar-nav .nav-item {
+    margin-left: 12px;   /* space between items */
+    margin-right: 12px;
+  }
+
+  /* Optional: Make dropdown font slightly larger */
+  .dropdown-menu .dropdown-item {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
 
 /* Navbar links */
 .custom-navbar .nav-link {
@@ -82,6 +108,11 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
+.brand-text {
+    color: #007bff;
+    font-weight: 600;
+  }
+
 
     /* hero */
     .hero{
@@ -97,6 +128,18 @@
 
     /* fade animations */
     @keyframes fadeInUp {from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    
+    #programs .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#programs .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.15);
+}
+#programs img {
+  height: 200px;
+  object-fit: cover;
+}
 
     /* cards */
     .feature-card,.course-card,.trainer,.testimonial-card{
@@ -117,10 +160,7 @@
     .btn-yellow:hover{background:#fca311;box-shadow:0 0 15px rgba(255,183,3,0.5)}
 
     /* footer */
-    footer{background:#071028;color:#a9b4c1;padding:3rem 0}
-    footer h6{color:#fff;margin-bottom:1rem;}
-    footer a{color:#a9b4c1;text-decoration:none;}
-    footer a:hover{color:var(--brand);}
+   
     .subscribe-box{background:#fff;padding:1rem;border-radius:8px;display:flex;gap:8px}
     .subscribe-box input{flex:1;border:none;outline:none;padding:0.6rem}
     .subscribe-box button{white-space:nowrap}
@@ -278,9 +318,7 @@
   transform: translateX(5px);
 }
 
-
-/* Footer Links */
-.footer-link {
+  .footer-link {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: all 0.3s ease;
@@ -326,8 +364,9 @@
   min-height: 300px;
   background: #111; /* darker than bg-dark */
 }
-
-
+ .subscribe-box{background:#fff;padding:1rem;border-radius:8px;display:flex;gap:8px}
+    .subscribe-box input{flex:1;border:none;outline:none;padding:0.6rem}
+    .subscribe-box button{white-space:nowrap}
 
 
   </style>
@@ -335,20 +374,29 @@
 <body>
 
   <!-- TOP BAR -->
-  <div class="topbar">
-    <div class="container d-flex justify-content-between">
-      <div>
-        <i class="fa fa-phone me-2"></i> +91 98765 43210 
-        <i class="fa fa-envelope ms-3 me-2"></i> info@royinformatics.com 
+   <div class="topbar py-2 bg-dark text-white">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    
+    <!-- Left Info -->
+    <div class="contact-info text-center text-md-start mb-2 mb-md-0">
+      <i class="fa fa-phone me-2"></i> +91 98765 43210 
+      <span class="d-none d-sm-inline">
+        <i class="fa fa-envelope ms-3 me-2"></i> info@royinformatics.com
+      </span>
+      <span class="d-none d-lg-inline">
         <i class="fa fa-map-marker-alt ms-3 me-2"></i> Bankura, West Bengal
-      </div>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
+      </span>
     </div>
+
+    <!-- Right Social Icons -->
+    <div class="social-icons text-center">
+      <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
   </div>
+</div>
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top custom-navbar">
@@ -370,18 +418,81 @@
 
     <!-- Menu -->
     <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item ms-lg-3">
-          <a class="btn btn-warning btn-sm rounded-pill px-3 fw-bold enroll-btn" href="#contact">
-            Enroll Now
-          </a>
-        </li>
+  <ul class="navbar-nav ms-auto align-items-lg-center">
+
+    <!-- Home -->
+    <li class="nav-item">
+      <a class="nav-link" href="index.html">Home</a>
+    </li>
+<!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Packages</a>
+            <ul class="dropdown-menu p-3 text-white rounded-0">
+              <li><a href="varanasi.html" class="dropdown-item ">Spiritual Triangle Tour</a></li> -->
+    <!-- About with Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        About
+      </a>
+      <ul class="dropdown-menu p-3 border-0 rounded-3">
+        <li><a class="dropdown-item" href="who-we-are.html">Who We Are</a></li>
+        <li><a class="dropdown-item" href="training-reviews.html">Training Reviews</a></li>
+        <li><a class="dropdown-item" href="trainers.html">Our Trainers</a></li>
+        <li><a class="dropdown-item" href="placement-record.html">Placement Record</a></li>
       </ul>
-    </div>
+    </li>
+    <!-- Training with Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="trainingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Training
+      </a>
+      <ul class="dropdown-menu p-3 border-0 rounded-3" aria-labelledby="trainingDropdown">
+        <li><a class="dropdown-item" href="courses.html">Our Programs</a></li>
+        <li><a class="dropdown-item" href="enrollment.html">Enrollment</a></li>
+        <li><a class="dropdown-item" href="upcoming-batch.html">Upcoming Batch</a></li>
+      </ul>
+    </li>
+
+    <!-- Select Centers with Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="centersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Select Centers
+      </a>
+      <ul class="dropdown-menu p-3 border-0 rounded-3" aria-labelledby="centersDropdown">
+        <li><a class="dropdown-item" href="center-kolkata.html">Kolkata</a></li>
+        <li><a class="dropdown-item" href="center-mumbai.html">Mumbai</a></li>
+        <li><a class="dropdown-item" href="center-delhi.html">Delhi</a></li>
+        <li><a class="dropdown-item" href="center-online.html">Online Center</a></li>
+      </ul>
+    </li>
+
+    <!-- Resources with Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Resources
+      </a>
+      <ul class="dropdown-menu border-0 rounded-3" aria-labelledby="resourcesDropdown">
+        <li><a class="dropdown-item" href="institutional-program.html">Institutional Program</a></li>
+        <li><a class="dropdown-item" href="corporate-training.html">Corporate Training Program</a></li>
+        <li><a class="dropdown-item" href="certification.html">Certification</a></li>
+        <li><a class="dropdown-item" href="life-at-ri.html">Life @ Roy Info</a></li>
+        <li><a class="dropdown-item" href="why-choose-ri.html">Why Choose Roy info</a></li>
+      </ul>
+    </li>
+
+    <!-- Contact -->
+    <li class="nav-item">
+      <a class="nav-link" href="contact.html">Contact</a>
+    </li>
+
+    <!-- Enroll Now Button -->
+    <li class="nav-item ms-lg-3">
+      <a class="btn btn-warning btn-sm rounded-pill px-3 fw-bold enroll-btn" href="enrollment.html">
+        Enroll Now
+      </a>
+    </li>
+  </ul>
+</div>
+
   </div>
 </nav>
 
@@ -395,7 +506,7 @@
 <p class="lead my-4">Practical, project-based training in HTML, CSS, JavaScript, Bootstrap, WordPress, SEO, Google Ads, Social Media Marketing and freelancing skills. <strong>Weekend & weekday batches available.</strong></p>
 <div class="d-flex gap-2 flex-wrap">
 <a class="btn btn-yellow btn-lg" href="#contact">Book a Free Demo</a>
-<a class="btn btn-outline-light btn-lg" href="#courses">View Courses</a>
+<a class="btn btn-outline-light btn-lg" href="courses.html">View Courses</a>
 </div>
 
 
@@ -413,6 +524,94 @@
 </div>
 </div>
 </section>
+
+
+<!-- DIGITAL MARKETING PROGRAMS -->
+<section id="programs" class="py-5 bg-light">
+  <div class="container">
+    <h3 class="fw-bold text-center mb-5 ">Choose the Course that<span style="color:var(--brand)"> Interests you the Most </span>
+      <span class="d-block mx-auto mt-2" 
+                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
+    </h3>
+    <div class="row g-4">
+
+      <!-- Program 1 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-3 h-100">
+          <img src="image/midm.jpg" class="card-img-top rounded-top" alt="Master in Digital Marketing">
+          <div class="card-body text-center">
+            <h5 class="fw-bold text-warning">MASTER IN FULL-STACK DEVELOPMENT</h5>
+            <hr>
+            <ul class="text-muted small text-start">
+              <li>In Class | Online</li>
+              <li>500+ Hrs Training</li>
+              <li>02 Months Internship</li>
+              <li>Recording (LMS) | Live Session</li>
+              <li>Live Projects</li>
+              <li>E-Notes & E-Books</li>
+              <li>30+ Certifications</li>
+            </ul>
+            <div class="d-flex justify-content-center gap-2">
+              <a href="courses.html" class="btn btn-warning text-dark fw-bold">View Program</a>
+              <a href="#" class="btn btn-outline-warning fw-bold">Download Brochure <i class="fa fa-download"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Program 2 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-3 h-100">
+          <img src="image/aimtp.jpg" class="card-img-top rounded-top" alt="Advanced Digital Marketing">
+          <div class="card-body text-center">
+            <h5 class="fw-bold text-warning">MASTER DIGITAL MARKETING </h5>
+            <hr>
+            <ul class="text-muted small text-start">
+              <li>In Class | Online</li>
+              <li>140+ Hrs Training</li>
+              <li>Recording (LMS) | Live Session</li>
+              <li>Live Projects</li>
+              <li>E-Notes & E-Books</li>
+              <li>27+ Certifications</li>
+            </ul>
+            <div class="d-flex justify-content-center gap-2">
+              <a href="courses.html" class="btn btn-warning text-dark fw-bold">View Program</a>
+              <a href="#" class="btn btn-outline-warning fw-bold">Download Brochure <i class="fa fa-download"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Program 3 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-3 h-100">
+          <img src="image/professional.jpg" class="card-img-top rounded-top" alt="Professional in Digital Marketing">
+          <div class="card-body text-center">
+            <h5 class="fw-bold text-warning">PROFESSIONAL IN WEB DEVELOPMENT</h5>
+            <hr>
+            <ul class="text-muted small text-start">
+              <li>In Class | Online</li>
+              <li>Customized Module</li>
+              <li>Live Projects</li>
+              <li>E-Notes</li>
+              <li>Google + DIDM (Certification)</li>
+            </ul>
+            <div class="d-flex justify-content-center gap-2">
+              <a href="courses.html" class="btn btn-warning text-dark fw-bold">View Program</a>
+              <a href="#" class="btn btn-outline-warning fw-bold">Download Brochure <i class="fa fa-download"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="text-center mt-5">
+      <a href="enrollment.html" class="btn btn-warning btn-lg px-5 fw-bold shadow">Enroll Now</a>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+
   <!-- WHY CHOOSE -->
   <section id="about" class="py-5 bg-light">
   <div class="container text-center">
@@ -624,8 +823,8 @@
           Our instructors are dedicated to helping you achieve your career goals.
         </p>
         <div class="d-flex gap-3">
-          <a href="#" class="btn btn-success px-4">Contact Us</a>
-          <a href="#" class="btn btn-dark px-4">Explore Courses</a>
+          <a href="contact.html" class="btn btn-success px-4">Contact Us</a>
+          <a href="contact.html" class="btn btn-dark px-4">Explore Courses</a>
         </div>
       </div>
 
@@ -885,7 +1084,7 @@
       <div class="col-md-3 mb-4">
         <h5 class="fw-bold text-warning mb-3">Roy Informatics</h5>
         <p class="small text-light opacity-75">
-          Practical web design & digital marketing training. Build skills, get projects, start freelancing.
+         Practical web design & digital marketing training. Gain hands-on skills, work on live projects, start freelancing, and prepare yourself for high-paying career opportunities in the digital world.
         </p>
         <div class="social-icons mt-3">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -898,10 +1097,12 @@
       <div class="col-md-3 mb-4">
         <h6 class="fw-bold mb-4 text-uppercase">Quick Links</h6>
         <ul class="list-unstyled small">
-          <li class="mb-2"><a href="#courses" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Home</a></li>
-          <li class="mb-2"><a href="#courses" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Courses</a></li>
-          <li class="mb-2"><a href="#about" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>About</a></li>
-          <li><a href="#contact" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Contact</a></li>
+          <li class="mb-2"><a href="index.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Home</a></li>
+          <li class="mb-2"><a href="courses.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Our Programs</a></li>
+          <li class="mb-2"><a href="enrollment.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Enrollment</a></li>
+          <li class="mb-2"><a href="training-reviews.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Training Reviews</a></li>
+          <li class="mb-2"><a href="who-we-are.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Who we are</a></li>
+          <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Contact</a></li>
         </ul>
       </div>
 
@@ -914,16 +1115,24 @@
       </div>
 
       <!-- Subscribe -->
-      <div class="col-md-3 mb-4">
-        <h6 class="fw-bold mb-4 text-uppercase">Subscribe</h6>
-        <p class="small opacity-75">
-          Enter your email to get our newsletter and updates.
-        </p>
-        <form class="subscribe-box d-flex">
-          <input type="email" class="form-control form-control-sm me-2 rounded-pill bg-dark text-light border-warning" placeholder="Enter email" required>
-          <button class="btn btn-warning btn-sm rounded-pill px-3">Subscribe</button>
-        </form>
-      </div>
+     <div class="col-md-3 mb-4">
+  <h6 class="fw-bold mb-3 text-uppercase">Corporate Office</h6>
+  <p class="small mb-1">
+    🏢 6/1, Sarat Chatterjee Ave, near Menoka Cinema, Lake Range, Kalighat, Kolkata, West Bengal 700029
+  </p>
+  <p class="small mb-1">📞 +91 8800505151</p>
+  <p class="small mb-3">📧 info@royinformatics.com</p>
+
+  <h6 class="fw-bold mb-3 text-uppercase">Subscribe & Follow Us</h6>
+
+  <div class="social-icons">
+    <a href="#" class="me-2 text-warning"><i class="fab fa-facebook fa-lg"></i></a>
+    <a href="#" class="me-2 text-warning"><i class="fab fa-twitter fa-lg"></i></a>
+    <a href="#" class="me-2 text-warning"><i class="fab fa-instagram fa-lg"></i></a>
+    <a href="#" class="text-warning"><i class="fab fa-linkedin fa-lg"></i></a>
+  </div>
+</div>
+
     </div>
 
     <!-- Bottom -->
@@ -947,6 +1156,22 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
   this.reset();
 });
 </script>
-
+ <script>
+// Prevent click from immediately closing dropdown on hover
+document.querySelectorAll('.navbar .dropdown').forEach(function (dropdown) {
+  dropdown.addEventListener('mouseover', function () {
+    const menu = this.querySelector('.dropdown-menu');
+    if (menu) {
+      new bootstrap.Dropdown(this.querySelector('.dropdown-toggle')).show();
+    }
+  });
+  dropdown.addEventListener('mouseleave', function () {
+    const menu = this.querySelector('.dropdown-menu');
+    if (menu) {
+      new bootstrap.Dropdown(this.querySelector('.dropdown-toggle')).hide();
+    }
+  });
+});
+</script>
 </body>
 </html>

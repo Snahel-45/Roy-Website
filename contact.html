@@ -3,37 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Courses | Roy Informatics</title>
-  <!-- Bootstrap & Font Awesome -->
+  <title>Contact Us - Roy Informatics</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
-    :root {
-      --brand:#ffb703; 
+:root{
+    --brand:#ffb703; 
       --dark:#0f1724;
+      --muted:#6b7280;
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
-     .topbar{background:#071028;color:#fff;font-size:14px;padding:6px 0;}
+    body{background:#fff; color:var(--dark);}
+
+    /* topbar */
+     /* topbar */
+    .topbar{background:#071028;color:#fff;font-size:14px;padding:6px 0;}
     .topbar a{color:#ffb703;margin-left:12px;}
 
-    .social-icons a {
-  display: inline-block;
-  color: #fff;
-  font-size: 16px;
-  margin-right: 10px;
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  text-align: center;
-  line-height: 34px;
-  transition: all 0.3s ease;
-}
-.brand-text {
-    color: #007bff;
-    font-weight: 600;
-  }
-  
+    /* navbar */
+    /* Brand logo hover */
 .brand-logo {
   height: 45px;
   width: 45px;
@@ -44,6 +32,11 @@
   transform: rotate(-5deg) scale(1.1);
 }
 
+.brand-text {
+    color: #007bff;
+    font-weight: 600;
+  }
+  
 /* Navbar */
 .custom-navbar {
   font-weight: 500;
@@ -86,7 +79,6 @@
 .custom-navbar .nav-link:hover {
   color: #ffb703 !important;
 }
-
 /* Underline animation */
 .custom-navbar .nav-link::after {
   content: "";
@@ -113,72 +105,123 @@
   color: #fff !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-
-.social-icons a:hover {
-  background: #ffb703;
-  color: #111;
-  border-color: #ffb703;
+/* Circle icons for contact info */
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, #ffb703, #fb8500);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: 0.3s ease;
 }
-    body { background:#f8f9fa; color:var(--dark); }
+
+.icon-circle:hover {
+  transform: scale(1.1);
+}
+
+/* Social media icons */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  background: #f8f9fa;
+  border-radius: 50%;
+  color: #333;
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon:hover {
+  background: hsl(137, 100%, 50%);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
     
-    h4 { letter-spacing: 0.5px; }
-    
-    .course-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-radius: 12px;
-       height: 220px;       /* Fixed height */
-  object-fit: cover;   /* Crop and fill without distortion */
-  border-top-left-radius: 0.5rem; 
-  border-top-right-radius: 0.5rem; /* keep rounded corners */
-    }
-    .course-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-    }
-    .course-card img {
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
-      transition: transform 0.4s ease;
-       height: 220px;       /* Fixed height */
-  object-fit: cover;   /* Crop and fill without distortion */
-  border-top-left-radius: 0.5rem; 
-  border-top-right-radius: 0.5rem; /* keep rounded corners */
-    }
-    .course-card:hover img { transform: scale(1.05); }
-    
-    .badge {
-      font-size: 0.85rem;
-      border-radius: 30px;
-      font-weight: 600;
-    }
-    .btn-yellow {
-      background: var(--brand);
-      color: #111;
-      font-weight: 500;
-    }
-    .btn-yellow:hover {
-      background: #ff9800;
+/* Gradient text heading */
+.text-gradient {
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Card styling */
+.contact-form {
+  background: #fff;
+  border: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  border-radius: 1rem;
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(45deg, #ff9800, #ff5722);
+}
+
+/* Input fields */
+.styled-input {
+  border: 2px solid #eee;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+  padding: 10px 14px;
+}
+
+.styled-input:focus {
+  border-color: #ff9800;
+  box-shadow: 0px 0px 8px rgba(255, 152, 0, 0.4);
+}
+
+/* Gradient button */
+.btn-gradient {
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(45deg, #ff5722, #ff9800);
+  transform: scale(1.03);
+  box-shadow: 0px 4px 12px rgba(255, 152, 0, 0.4);
+}
+    .contact-header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('image/students-using-computers-stockcake.jpg') center/cover no-repeat;
       color: #fff;
-    }
-    
-    .page-header {
-      padding: 80px 0 40px;
-      background: url('image/students-using-computers-stockcake.jpg') center/cover no-repeat fixed;
-      position: relative;
-      color: #fff;
+      padding: 120px 0;
       text-align: center;
     }
-    .page-header::after {
-      content:"";
-      position:absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      background: rgba(0,0,30,0.6);
-      z-index:0;
+    .contact-header h1 {
+      font-size: 48px;
+      font-weight: bold;
     }
-    .page-header .container { position:relative; z-index:1; }
+    .form-control:focus {
+      border-color: #ffc107;
+      box-shadow: 0 0 0 0.2rem rgba(255,193,7,.25);
+    }
+    .btn-yellow {
+      background: #ffc107;
+      color: #111;
+      font-weight: bold;
+    }
+    .btn-yellow:hover {
+      background: #e0a800;
+      color: #fff;
+    }
+    /* .contact-info i {
+      font-size: 24px;
+      color: hsl(0, 0%, 0%);
+      margin-right: 10px;
+    } */
 
-    .footer-link {
+footer-link {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: all 0.3s ease;
@@ -229,11 +272,12 @@
     .subscribe-box input{flex:1;border:none;outline:none;padding:0.6rem}
     .subscribe-box button{white-space:nowrap}
 
+  
   </style>
 </head>
 <body>
 
-       <div class="topbar py-2 bg-dark text-white">
+     <div class="topbar py-2 bg-dark text-white">
   <div class="container d-flex flex-wrap justify-content-between align-items-center">
     
     <!-- Left Info -->
@@ -258,6 +302,7 @@
 </div>
 
   <!-- NAVBAR -->
+<!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top custom-navbar">
   <div class="container">
     <!-- Logo -->
@@ -356,8 +401,7 @@
 </nav>
 
 
-  <!-- HERO -->
-<!-- 🌟 Taller About Us Hero Section -->
+  <!-- Contact Banner -->
 <section class="hero w-100 mt-0" 
   style="background: url('image/students-using-computers-stockcake.jpg') center/cover no-repeat fixed; 
          position: relative; min-height: 70vh; display: flex; align-items: center;">
@@ -366,205 +410,92 @@
   <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,30,0.6);"></div>
 
   <div class="container text-center text-white position-relative">
-    <h1 class="display-3 fw-bold">Our Programs</h1>
-    <p class="lead mb-3">Learn more about Roy Informatics</p>
+    <h1 class="display-3 fw-bold">Contact Us</h1>
+    <p class="lead mb-3">We’d love to hear from you! Get in touch with us.</p>
     
     <p class="lead mt-3 mb-0">
       <a href="index.html" class="btn btn-warning btn-sm rounded-pill px-3">
         <i class="fa fa-home"></i> Home
       </a>
       <i class="fa-solid fa-angles-right mx-2"></i>
-      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">Training</span>
-      <i class="fa-solid fa-angles-right mx-2"></i>
-      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">Our Programs</span>
+      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">Contact</span>
     </p>
   </div>
 </section>
 
+  <!-- Contact Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-5">
 
+        <!-- Left Side - Contact Info -->
+       <div class="col-lg-5">
+  <h3 class="fw-bold mb-4">Get in Touch</h3>
+  <p class="text-muted">Have any questions? Fill out the form and our team will get back to you shortly.</p>
 
-
-<!-- WEB DEVELOPMENT COURSES -->
-<section class="py-5">
-  <div class="container">
-    <h2 class="mb-4 text-center">💻 Web Development Courses
-        <span class="d-block mx-auto mt-2" 
-                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
-    </h2>
-    <div class="row g-4">
-      
-      <!-- Courses -->
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/1.webp" class="card-img-top">
-        <span class="badge bg-warning text-dark position-absolute m-3 px-3 py-2">Frontend</span>
-        <div class="card-body text-center"><h5>HTML, CSS & Bootstrap</h5><p class="small text-muted">Build modern, responsive websites with frontend basics.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/2.jpg" class="card-img-top">
-        <span class="badge bg-primary text-white position-absolute m-3 px-3 py-2">JavaScript</span>
-        <div class="card-body text-center"><h5>JavaScript & ES6</h5><p class="small text-muted">Interactive websites with vanilla JS, ES6, and APIs.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/3.png" class="card-img-top">
-        <span class="badge bg-success text-white position-absolute m-3 px-3 py-2">React</span>
-        <div class="card-body text-center"><h5>React Development</h5><p class="small text-muted">Build SPAs with React, hooks, router & state management.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/4.png" class="card-img-top">
-        <span class="badge bg-dark text-white position-absolute m-3 px-3 py-2">Node.js</span>
-        <div class="card-body text-center"><h5>Node.js & Express</h5><p class="small text-muted">Server-side programming with REST APIs & authentication.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/5.png" class="card-img-top">
-        <span class="badge bg-secondary text-white position-absolute m-3 px-3 py-2">Database</span>
-        <div class="card-body text-center"><h5>MongoDB & SQL</h5><p class="small text-muted">Master databases, queries & schema design.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/6.jpg" class="card-img-top">
-        <span class="badge bg-danger text-white position-absolute m-3 px-3 py-2">Full Stack</span>
-        <div class="card-body text-center"><h5>MERN Full Stack</h5><p class="small text-muted">Complete MERN stack with real-world projects.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
+  <!-- Contact Info -->
+  <div class="contact-info mb-3 d-flex align-items-center">
+    <div class=" me-3">
+      <i class="fa-solid fa-location-dot"></i>
     </div>
+    <span>🏢 6/1, Sarat Chatterjee Ave, near Menoka Cinema, Lake Range, Kalighat, Kolkata, West Bengal 700029</span>
   </div>
-</section>
 
-<!-- DIGITAL MARKETING COURSES -->
-<section class="py-5 bg-light">
-  <div class="container">
-    <h2 class="mb-4 text-center">📈 Digital Marketing Courses 
-        <span class="d-block mx-auto mt-2" 
-                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
-    </h2>
-    <div class="row g-4">
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/7.png" class="card-img-top">
-        <span class="badge bg-info text-dark position-absolute m-3 px-3 py-2">SEO</span>
-        <div class="card-body text-center"><h5>Advanced SEO</h5><p class="small text-muted">On-page, off-page & technical SEO to rank websites.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/8.jpg" class="card-img-top">
-        <span class="badge bg-danger text-white position-absolute m-3 px-3 py-2">Ads</span>
-        <div class="card-body text-center"><h5>Google Ads & PPC</h5><p class="small text-muted">Run profitable campaigns, analytics & remarketing.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/9.webp" class="card-img-top">
-        <span class="badge bg-secondary text-white position-absolute m-3 px-3 py-2">SMM</span>
-        <div class="card-body text-center"><h5>Social Media Marketing</h5><p class="small text-muted">Grow Facebook, Instagram & LinkedIn organically.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/10.png" class="card-img-top">
-        <span class="badge bg-warning text-dark position-absolute m-3 px-3 py-2">Email</span>
-        <div class="card-body text-center"><h5>Email Marketing</h5><p class="small text-muted">Design, send & automate campaigns for ROI.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/11.png" class="card-img-top">
-        <span class="badge bg-dark text-white position-absolute m-3 px-3 py-2">Analytics</span>
-        <div class="card-body text-center"><h5>Google Analytics</h5><p class="small text-muted">Track & analyze website traffic with GA4.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/12.jpg" class="card-img-top">
-        <span class="badge bg-primary text-white position-absolute m-3 px-3 py-2">Content</span>
-        <div class="card-body text-center"><h5>Content Marketing</h5><p class="small text-muted">Learn storytelling, blogging & content SEO.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
+  <div class="contact-info mb-3 d-flex align-items-center">
+    <div class=" me-3">
+      <i class="fa-solid fa-phone"></i>
     </div>
+    <span>+91 98765 43210</span>
   </div>
-</section>
 
-<!-- EXTRA SKILLS -->
-<section class="py-5">
-  <div class="container">
-    <h2 class="mb-4 text-center">🎨 Extra Skill Courses <span class="d-block mx-auto mt-2" 
-                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span></h2>
-    <div class="row g-4">
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/13.jpeg" class="card-img-top">
-        <span class="badge bg-info text-dark position-absolute m-3 px-3 py-2">Design</span>
-        <div class="card-body text-center"><h5>Graphic Design</h5><p class="small text-muted">Learn Photoshop, Illustrator & branding design.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/14.webp" class="card-img-top">
-        <span class="badge bg-warning text-dark position-absolute m-3 px-3 py-2">Freelancing</span>
-        <div class="card-body text-center"><h5>Freelancing Skills</h5><p class="small text-muted">Work on Fiverr, Upwork & freelancing platforms.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/15.jpeg" class="card-img-top">
-        <span class="badge bg-success text-white position-absolute m-3 px-3 py-2">Data</span>
-        <div class="card-body text-center"><h5>Data Analytics</h5><p class="small text-muted">Excel, Power BI & data visualization for insights.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
+  <div class="contact-info mb-3 d-flex align-items-center">
+    <div class=" me-3">
+      <i class="fa-solid fa-envelope"></i>
     </div>
+    <span>info@royinformatics.com</span>
   </div>
-</section>
 
-<!-- CONTACT FORM -->
-<!-- CONTACT FORM -->
-<section id="contact" class="py-5 bg-light">
-  <div class="container">
-    <div class="row justify-content-center">
-      
-      <!-- Heading -->
-      <div class="col-lg-8 text-center mb-4">
-        <h3 class="fw-bold position-relative d-inline-block">
-          Have any question?
-          <span class="d-block mx-auto mt-2" 
-                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
-        </h3>
-        <p class="text-muted mt-3">
-          Your email address will not be published. Required fields are marked *
-        </p>
+  <!-- Social Media -->
+  <div class="mt-4">
+    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+  </div>
+</div>
+
+        <!-- Right Side - Contact Form -->
+       <div class="col-lg-7">
+  <div class="card shadow-lg border-0 rounded-4 p-4 contact-form">
+    <h4 class="fw-bold mb-4 text-gradient text-center">Book Seat For Counselling</h4>
+    <form>
+      <div class="mb-3">
+        <label class="form-label fw-semibold">Full Name *</label>
+        <input type="text" class="form-control styled-input" placeholder="Enter your name" required>
       </div>
-      
-      <!-- Form -->
-      <div class="col-lg-8">
-        <form class="p-4 bg-white rounded-4 shadow-lg">
-          
-          <!-- Full Name -->
-          <div class="mb-3">
-            <label for="name" class="form-label fw-bold">Full name *</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
-          </div>
-          
-          <!-- Email -->
-          <div class="mb-3">
-            <label for="email" class="form-label fw-bold">Email address *</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
-          </div>
-          
-          <!-- Message -->
-          <div class="mb-3">
-            <label for="message" class="form-label fw-bold">Write your message *</label>
-            <textarea class="form-control" id="message" rows="5" placeholder="Type your message here..." required></textarea>
-          </div>
-          
-          <!-- Button -->
-          <div class="d-grid">
-            <button type="submit" class="btn btn-warning rounded-pill fw-bold py-2">
-              Send Message
-            </button>
-          </div>
-          
-        </form>
+      <div class="mb-3">
+        <label class="form-label fw-semibold">Email Address *</label>
+        <input type="email" class="form-control styled-input" placeholder="Enter your email" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label fw-semibold">Write your message *</label>
+        <textarea class="form-control styled-input" rows="5" placeholder="Type your message here..." required></textarea>
+      </div>
+      <button type="submit" class="btn btn-gradient w-100 py-2 fw-bold">Send Message 🚀</button>
+    </form>
+  </div>
+</div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- Google Map -->
+  <section>
+    <div class="container-fluid p-0">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.7868330893402!2d88.34847017507585!3d22.512179679534835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0270cdb10bffff%3A0x2e8295ea16984f1b!2sRoy%20Informatics%20Private%20Limited!5e0!3m2!1sen!2sin!4v1758174655005!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
 <!-- FOOTER -->
 <footer class="footer bg-dark text-light pt-5 pb-4">
   <div class="container">
@@ -631,6 +562,8 @@
     </div>
   </div>
 </footer>
+
+
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

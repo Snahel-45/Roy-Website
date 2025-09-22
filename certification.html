@@ -3,17 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Courses | Roy Informatics</title>
-  <!-- Bootstrap & Font Awesome -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Roy Informatics - Certification</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
-    :root {
-      --brand:#ffb703; 
+     :root{
+    --brand:#ffb703; 
       --dark:#0f1724;
+      --muted:#6b7280;
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
-     .topbar{background:#071028;color:#fff;font-size:14px;padding:6px 0;}
+    body{background:#fff; color:var(--dark);}
+     .section-title {font-weight:700; font-size:2rem; color:#0f1724;}
+  .card-cert {transition:all 0.3s ease;}
+  .card-cert:hover {transform:translateY(-10px) scale(1.02); box-shadow:0 15px 40px rgba(0,0,0,0.15);}
+  .glow-btn {transition:all 0.3s ease;}
+  .glow-btn:hover {box-shadow:0 0 25px rgba(255,183,3,0.8); transform:scale(1.05);}
+
+  
+
+    /* topbar */
+    .topbar{background:#071028;color:#fff;font-size:14px;padding:6px 0;}
     .topbar a{color:#ffb703;margin-left:12px;}
 
     .social-icons a {
@@ -29,11 +39,13 @@
   line-height: 34px;
   transition: all 0.3s ease;
 }
-.brand-text {
-    color: #007bff;
-    font-weight: 600;
-  }
-  
+.social-icons a:hover {
+  background: #ffb703;
+  color: #111;
+  border-color: #ffb703;
+}
+    /* navbar */
+    /* Brand logo hover */
 .brand-logo {
   height: 45px;
   width: 45px;
@@ -43,6 +55,11 @@
 .brand-logo:hover {
   transform: rotate(-5deg) scale(1.1);
 }
+
+.brand-text {
+    color: #007bff;
+    font-weight: 600;
+  }
 
 /* Navbar */
 .custom-navbar {
@@ -114,71 +131,153 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.social-icons a:hover {
+/* Hero About Section */
+.hero-about {
+  height: 65vh;
+  background: url('image/students-using-computers-stockcake.jpg') center/cover no-repeat fixed;
+  position: relative;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dark overlay for readability */
+.hero-about .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 30, 0.65); /* Midnight blue overlay */
+  z-index: 0;
+}
+
+/* Position container above overlay */
+.hero-about .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Title styling */
+.hero-about h1 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Breadcrumb Styling */
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.breadcrumb .btn {
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.breadcrumb .btn:hover:not(.disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.5);
+}
+
+.hover-shadow {
+    transition: all 0.3s ease-in-out;
+  }
+  .hover-shadow:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+  .icon-box {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    background: rgba(255,193,7,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+/* Cousre */
+
+  .course-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .course-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  }
+  .course-card img {
+    transition: transform 0.4s ease;
+      height: 220px;       /* Fixed height */
+  object-fit: cover;   /* Crop and fill without distortion */
+  border-top-left-radius: 0.5rem; 
+  border-top-right-radius: 0.5rem; /* keep rounded corners */
+  }
+  .course-card:hover img {
+    transform: scale(1.05);
+  }
+  .badge {
+    font-size: 0.85rem;
+    border-radius: 30px;
+  }
+
+    /* Why Choose Us */
+    .why-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .why-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Instructors */
+  .instructor-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.instructor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+.social-instructor {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  color: #333;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+.social-instructor:hover {
   background: #ffb703;
   color: #111;
+  transform: scale(1.2);
+}
+.instructor-card img {
+  border-width: 3px;
+  border-style: solid;
   border-color: #ffb703;
 }
-    body { background:#f8f9fa; color:var(--dark); }
-    
-    h4 { letter-spacing: 0.5px; }
-    
-    .course-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-radius: 12px;
-       height: 220px;       /* Fixed height */
-  object-fit: cover;   /* Crop and fill without distortion */
-  border-top-left-radius: 0.5rem; 
-  border-top-right-radius: 0.5rem; /* keep rounded corners */
-    }
-    .course-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-    }
-    .course-card img {
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
-      transition: transform 0.4s ease;
-       height: 220px;       /* Fixed height */
-  object-fit: cover;   /* Crop and fill without distortion */
-  border-top-left-radius: 0.5rem; 
-  border-top-right-radius: 0.5rem; /* keep rounded corners */
-    }
-    .course-card:hover img { transform: scale(1.05); }
-    
-    .badge {
-      font-size: 0.85rem;
-      border-radius: 30px;
-      font-weight: 600;
-    }
-    .btn-yellow {
+    /* CTA */
+    .cta {
       background: var(--brand);
       color: #111;
-      font-weight: 500;
+      padding: 50px 20px;
+      border-radius: 15px;
     }
-    .btn-yellow:hover {
-      background: #ff9800;
-      color: #fff;
+    .cta h2 {
+      font-weight: 700;
     }
-    
-    .page-header {
-      padding: 80px 0 40px;
-      background: url('image/students-using-computers-stockcake.jpg') center/cover no-repeat fixed;
-      position: relative;
-      color: #fff;
-      text-align: center;
-    }
-    .page-header::after {
-      content:"";
-      position:absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      background: rgba(0,0,30,0.6);
-      z-index:0;
-    }
-    .page-header .container { position:relative; z-index:1; }
 
-    .footer-link {
+    /* Footer */
+   .footer-link {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: all 0.3s ease;
@@ -224,16 +323,15 @@
   min-height: 300px;
   background: #111; /* darker than bg-dark */
 }
-
  .subscribe-box{background:#fff;padding:1rem;border-radius:8px;display:flex;gap:8px}
     .subscribe-box input{flex:1;border:none;outline:none;padding:0.6rem}
     .subscribe-box button{white-space:nowrap}
 
+
   </style>
 </head>
 <body>
-
-       <div class="topbar py-2 bg-dark text-white">
+  <div class="topbar py-2 bg-dark text-white">
   <div class="container d-flex flex-wrap justify-content-between align-items-center">
     
     <!-- Left Info -->
@@ -256,8 +354,8 @@
 
   </div>
 </div>
-
   <!-- NAVBAR -->
+<!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top custom-navbar">
   <div class="container">
     <!-- Logo -->
@@ -356,6 +454,7 @@
 </nav>
 
 
+
   <!-- HERO -->
 <!-- 🌟 Taller About Us Hero Section -->
 <section class="hero w-100 mt-0" 
@@ -366,207 +465,101 @@
   <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,30,0.6);"></div>
 
   <div class="container text-center text-white position-relative">
-    <h1 class="display-3 fw-bold">Our Programs</h1>
-    <p class="lead mb-3">Learn more about Roy Informatics</p>
+    <h1 class="display-3 fw-bold">Get Certified with <span class="highlight">Roy Informatics</h1>
+    <p class="lead mb-3">Boost your career with industry-recognized certifications in Web Development, Digital Marketing, and more.</p>
     
     <p class="lead mt-3 mb-0">
       <a href="index.html" class="btn btn-warning btn-sm rounded-pill px-3">
         <i class="fa fa-home"></i> Home
       </a>
       <i class="fa-solid fa-angles-right mx-2"></i>
-      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">Training</span>
+      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">Resources</span>
       <i class="fa-solid fa-angles-right mx-2"></i>
-      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">Our Programs</span>
+      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">certification</span>
     </p>
   </div>
 </section>
 
-
-
-
-<!-- WEB DEVELOPMENT COURSES -->
-<section class="py-5">
+<!-- Why Certification -->
+<section class="py-5 text-center position-relative">
   <div class="container">
-    <h2 class="mb-4 text-center">💻 Web Development Courses
-        <span class="d-block mx-auto mt-2" 
-                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
-    </h2>
+    <h2 class="section-title mb-3">✨ Why Our Certification Matters?</h2>
+    <p class="col-lg-8 mx-auto text-muted lead">
+      Our certifications are <b class="text-warning">globally recognized</b> and backed by 
+      <span class="fw-bold">real-world projects</span>, hands-on training, and industry experts.  
+      With <b>30+ certifications</b> including <span class="text-warning">Google, HubSpot, and Roy Info</span>, 
+      you gain credibility and career growth opportunities.
+    </p>
+  </div>
+  <div class="custom-shape-divider-bottom-166 svg-shape">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
+      <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" fill="#f8f9fa"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- Certification Programs -->
+<section id="programs" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title text-center mb-5">🎓 Our Certification Programs</h2>
     <div class="row g-4">
       
-      <!-- Courses -->
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/1.webp" class="card-img-top">
-        <span class="badge bg-warning text-dark position-absolute m-3 px-3 py-2">Frontend</span>
-        <div class="card-body text-center"><h5>HTML, CSS & Bootstrap</h5><p class="small text-muted">Build modern, responsive websites with frontend basics.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/2.jpg" class="card-img-top">
-        <span class="badge bg-primary text-white position-absolute m-3 px-3 py-2">JavaScript</span>
-        <div class="card-body text-center"><h5>JavaScript & ES6</h5><p class="small text-muted">Interactive websites with vanilla JS, ES6, and APIs.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/3.png" class="card-img-top">
-        <span class="badge bg-success text-white position-absolute m-3 px-3 py-2">React</span>
-        <div class="card-body text-center"><h5>React Development</h5><p class="small text-muted">Build SPAs with React, hooks, router & state management.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/4.png" class="card-img-top">
-        <span class="badge bg-dark text-white position-absolute m-3 px-3 py-2">Node.js</span>
-        <div class="card-body text-center"><h5>Node.js & Express</h5><p class="small text-muted">Server-side programming with REST APIs & authentication.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/5.png" class="card-img-top">
-        <span class="badge bg-secondary text-white position-absolute m-3 px-3 py-2">Database</span>
-        <div class="card-body text-center"><h5>MongoDB & SQL</h5><p class="small text-muted">Master databases, queries & schema design.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/6.jpg" class="card-img-top">
-        <span class="badge bg-danger text-white position-absolute m-3 px-3 py-2">Full Stack</span>
-        <div class="card-body text-center"><h5>MERN Full Stack</h5><p class="small text-muted">Complete MERN stack with real-world projects.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-    </div>
-  </div>
-</section>
-
-<!-- DIGITAL MARKETING COURSES -->
-<section class="py-5 bg-light">
-  <div class="container">
-    <h2 class="mb-4 text-center">📈 Digital Marketing Courses 
-        <span class="d-block mx-auto mt-2" 
-                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
-    </h2>
-    <div class="row g-4">
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/7.png" class="card-img-top">
-        <span class="badge bg-info text-dark position-absolute m-3 px-3 py-2">SEO</span>
-        <div class="card-body text-center"><h5>Advanced SEO</h5><p class="small text-muted">On-page, off-page & technical SEO to rank websites.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/8.jpg" class="card-img-top">
-        <span class="badge bg-danger text-white position-absolute m-3 px-3 py-2">Ads</span>
-        <div class="card-body text-center"><h5>Google Ads & PPC</h5><p class="small text-muted">Run profitable campaigns, analytics & remarketing.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/9.webp" class="card-img-top">
-        <span class="badge bg-secondary text-white position-absolute m-3 px-3 py-2">SMM</span>
-        <div class="card-body text-center"><h5>Social Media Marketing</h5><p class="small text-muted">Grow Facebook, Instagram & LinkedIn organically.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/10.png" class="card-img-top">
-        <span class="badge bg-warning text-dark position-absolute m-3 px-3 py-2">Email</span>
-        <div class="card-body text-center"><h5>Email Marketing</h5><p class="small text-muted">Design, send & automate campaigns for ROI.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/11.png" class="card-img-top">
-        <span class="badge bg-dark text-white position-absolute m-3 px-3 py-2">Analytics</span>
-        <div class="card-body text-center"><h5>Google Analytics</h5><p class="small text-muted">Track & analyze website traffic with GA4.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/12.jpg" class="card-img-top">
-        <span class="badge bg-primary text-white position-absolute m-3 px-3 py-2">Content</span>
-        <div class="card-body text-center"><h5>Content Marketing</h5><p class="small text-muted">Learn storytelling, blogging & content SEO.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EXTRA SKILLS -->
-<section class="py-5">
-  <div class="container">
-    <h2 class="mb-4 text-center">🎨 Extra Skill Courses <span class="d-block mx-auto mt-2" 
-                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span></h2>
-    <div class="row g-4">
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/13.jpeg" class="card-img-top">
-        <span class="badge bg-info text-dark position-absolute m-3 px-3 py-2">Design</span>
-        <div class="card-body text-center"><h5>Graphic Design</h5><p class="small text-muted">Learn Photoshop, Illustrator & branding design.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/14.webp" class="card-img-top">
-        <span class="badge bg-warning text-dark position-absolute m-3 px-3 py-2">Freelancing</span>
-        <div class="card-body text-center"><h5>Freelancing Skills</h5><p class="small text-muted">Work on Fiverr, Upwork & freelancing platforms.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/15.jpeg" class="card-img-top">
-        <span class="badge bg-success text-white position-absolute m-3 px-3 py-2">Data</span>
-        <div class="card-body text-center"><h5>Data Analytics</h5><p class="small text-muted">Excel, Power BI & data visualization for insights.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT FORM -->
-<!-- CONTACT FORM -->
-<section id="contact" class="py-5 bg-light">
-  <div class="container">
-    <div class="row justify-content-center">
-      
-      <!-- Heading -->
-      <div class="col-lg-8 text-center mb-4">
-        <h3 class="fw-bold position-relative d-inline-block">
-          Have any question?
-          <span class="d-block mx-auto mt-2" 
-                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
-        </h3>
-        <p class="text-muted mt-3">
-          Your email address will not be published. Required fields are marked *
-        </p>
+      <div class="col-md-4">
+        <div class="card card-cert shadow-lg border-0 h-100 text-center p-4 rounded-4 bg-white">
+          <i class="fa-solid fa-code fa-3x mb-3 text-warning"></i>
+          <h5 class="fw-bold">Web Development Certification</h5>
+          <p class="text-muted">Master HTML, CSS, JavaScript, React, Node.js, and get certified as a Full Stack Developer.</p>
+        </div>
       </div>
       
-      <!-- Form -->
-      <div class="col-lg-8">
-        <form class="p-4 bg-white rounded-4 shadow-lg">
-          
-          <!-- Full Name -->
-          <div class="mb-3">
-            <label for="name" class="form-label fw-bold">Full name *</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
-          </div>
-          
-          <!-- Email -->
-          <div class="mb-3">
-            <label for="email" class="form-label fw-bold">Email address *</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
-          </div>
-          
-          <!-- Message -->
-          <div class="mb-3">
-            <label for="message" class="form-label fw-bold">Write your message *</label>
-            <textarea class="form-control" id="message" rows="5" placeholder="Type your message here..." required></textarea>
-          </div>
-          
-          <!-- Button -->
-          <div class="d-grid">
-            <button type="submit" class="btn btn-warning rounded-pill fw-bold py-2">
-              Send Message
-            </button>
-          </div>
-          
-        </form>
+      <div class="col-md-4">
+        <div class="card card-cert shadow-lg border-0 h-100 text-center p-4 rounded-4 bg-white">
+          <i class="fa-solid fa-bullhorn fa-3x mb-3 text-warning"></i>
+          <h5 class="fw-bold">Digital Marketing Certification</h5>
+          <p class="text-muted">Covers SEO, SEM, SMM, Email Marketing, and 30+ modules with industry-backed projects.</p>
+        </div>
       </div>
+
+      <div class="col-md-4">
+        <div class="card card-cert shadow-lg border-0 h-100 text-center p-4 rounded-4 bg-white">
+          <i class="fa-solid fa-chart-line fa-3x mb-3 text-warning"></i>
+          <h5 class="fw-bold">Analytics & SEO Certification</h5>
+          <p class="text-muted">Learn advanced SEO strategies, Google Analytics, and rank websites with proven methods.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer bg-dark text-light pt-5 pb-4">
+<!-- Certificate Preview -->
+<section class="py-5">
+  <div class="container text-center">
+    <h2 class="section-title mb-3">📜 Your Certificate Preview</h2>
+    <p class="text-muted mb-4">Upon successful completion of training and assessments, you will receive a professional certificate.</p>
+    <div class="p-3 bg-light rounded-4 shadow-lg d-inline-block border border-3 border-warning">
+      <img src="image/sample-certificate.jpg" alt="Certificate Preview" class="img-fluid rounded">
+    </div>
+  </div>
+</section>
+
+<!-- Call To Action -->
+<section class="py-5 bg-dark text-white text-center position-relative">
+  <div class="container">
+    <h3 class="fw-bold mb-3">🚀 Ready to Get Certified?</h3>
+    <p class="mb-4 lead">Take the first step towards boosting your career with <span class="text-warning">globally recognized certifications</span>.</p>
+    <a href="enrollment.html" class="btn btn-warning btn-lg fw-bold px-5 py-3 rounded-pill shadow glow-btn">
+      Enroll Now
+    </a>
+  </div>
+  <div class="custom-shape-divider-top-166 svg-shape">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
+      <path d="M0,100 C600,0 600,100 1200,0 L1200,100 L0,100 Z" fill="#fff"></path>
+    </svg>
+  </div>
+</section>
+
+   <footer class="footer bg-dark text-light pt-5 pb-4">
   <div class="container">
     <div class="row">
 

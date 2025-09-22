@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Trainers - Roy Informatics</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --brand: #ffb703;
+        --dark: #0f1724;
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+      }
+      .topbar {
+        background: #071028;
+        color: #fff;
+        font-size: 14px;
+        padding: 6px 0;
+      }
+      .topbar a {
+        color: #ffb703;
+        margin-left: 12px;
+      }
+
+      .social-icons a {
+        display: inline-block;
+        color: #fff;
+        font-size: 16px;
+        margin-right: 10px;
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 34px;
+        transition: all 0.3s ease;
+      }
+
+      .brand-logo {
+        height: 45px;
+        width: 45px;
+        border-radius: 8px;
+        transition: transform 0.3s;
+      }
+      .brand-logo:hover {
+        transform: rotate(-5deg) scale(1.1);
+      }
+
+      /* Navbar */
+      .custom-navbar {
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+      /* Remove blue focus outline and box-shadow on navbar links */
+      .navbar .nav-link:focus,
+      .navbar .nav-link:active,
+      .navbar .dropdown-toggle:focus,
+      .navbar .dropdown-item:focus {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+
+      .navbar-nav .nav-link {
+        font-size: 1.05rem; /* default ~1rem, adjust as needed */
+        font-weight: 500; /* makes it a bit bolder */
+        padding: 0.7rem 1rem; /* increase clickable area */
+      }
+
+      /* Add spacing between nav items */
+      .navbar-nav .nav-item {
+        margin-left: 12px; /* space between items */
+        margin-right: 12px;
+      }
+
+      /* Optional: Make dropdown font slightly larger */
+      .dropdown-menu .dropdown-item {
+        font-size: 0.95rem;
+        padding: 0.6rem 1rem;
+      }
+
+      /* Navbar links */
+      .custom-navbar .nav-link {
+        position: relative;
+        padding: 8px 15px;
+        color: #333 !important;
+        transition: color 0.3s;
+      }
+      .custom-navbar .nav-link:hover {
+        color: #ffb703 !important;
+      }
+.brand-text {
+    color: #007bff;
+    font-weight: 600;
+  }
+      /* Underline animation */
+      .custom-navbar .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 2px;
+        width: 0%;
+        height: 2px;
+        background: #ffb703;
+        transition: width 0.3s ease;
+      }
+      .custom-navbar .nav-link:hover::after,
+      .custom-navbar .nav-link.active::after {
+        width: 100%;
+      }
+
+      /* Enroll button */
+      .enroll-btn {
+        box-shadow: 0 3px 10px rgba(255, 183, 3, 0.4);
+        transition: all 0.3s ease;
+      }
+      .enroll-btn:hover {
+        background: #333 !important;
+        color: #fff !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .social-icons a:hover {
+        background: #ffb703;
+        color: #111;
+        border-color: #ffb703;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      .trainer-card img {
+        height: 280px;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+      .trainer-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .trainer-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+      .text-gradient {
+        background: linear-gradient(45deg, #ffb703, #fb8500);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .social-icons a {
+        color: #555;
+        margin: 0 6px;
+        transition: 0.3s;
+      }
+      .social-icons a:hover {
+        color: #fb8500;
+      }
+
+      .footer-link {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .footer-link:hover {
+        color: #ffb703;
+        padding-left: 5px;
+      }
+
+      /* Social Icons */
+      .social-icons a {
+        display: inline-block;
+        color: #fff;
+        font-size: 16px;
+        margin-right: 10px;
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 34px;
+        transition: all 0.3s ease;
+      }
+      .social-icons a:hover {
+        background: #ffb703;
+        color: #111;
+        border-color: #ffb703;
+      }
+
+
+
+      /* Subscribe Input */
+      .subscribe-box input {
+        border: 1px solid #ffb703;
+        padding: 8px 12px;
+      }
+      .subscribe-box input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+      }
+
+      .text-gradient {
+        background: linear-gradient(90deg, #ff9900, #ff6600, #ff3300);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .trainer-card {
+        transition: all 0.4s ease;
+        border-radius: 20px;
+        background: #fff;
+      }
+      .trainer-card:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .trainer-img img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin: auto;
+        border: 5px solid #fff;
+        transition: transform 0.3s ease;
+      }
+      .trainer-card:hover .trainer-img img {
+        transform: rotate(-3deg) scale(1.05);
+      }
+
+      .social-icons-train a {
+        margin: 0 8px;
+        font-size: 18px;
+        color: #555;
+        transition: all 0.3s ease;
+      }
+      .social-icons-train a:hover {
+        color: #ff6600;
+        transform: scale(1.2);
+      }
+
+      .cta {
+        background: var(--brand);
+        color: #111;
+        padding: 50px 20px;
+        border-radius: 15px;
+      }
+      .cta h2 {
+        font-weight: 700;
+      }
+
+      .carousel-indicators [data-bs-target] {
+        background-color: #00a884;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .cta-section {
+        background: linear-gradient(135deg, #ff6f61, #ffb703, #fb8500);
+        color: white;
+        border-radius: 20px;
+        margin: 40px auto;
+        padding: 80px 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        top: -80px;
+        left: -80px;
+        animation: float 6s infinite ease-in-out;
+      }
+
+      .cta-section::after {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        bottom: -100px;
+        right: -100px;
+        animation: float 8s infinite ease-in-out reverse;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(20px);
+        }
+      }
+
+      /* Button Styling */
+      .btn-cta {
+        background: white;
+        color: #ff6f61;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+
+      .btn-cta:hover {
+        background: #ff6f61;
+        color: white;
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 111, 97, 0.7);
+      }
+      /* Footer Background Height */
+      .footer {
+        width: 100%;
+        min-height: 300px;
+        background: #111; /* darker than bg-dark */
+      }
+      /* Subscribe Input */
+.subscribe-box input {
+  border: 1px solid #ffb703;
+  padding: 8px 12px;
+}
+.subscribe-box input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+ .subscribe-box{background:#fff;padding:1rem;border-radius:8px;display:flex;gap:8px}
+    .subscribe-box input{flex:1;border:none;outline:none;padding:0.6rem}
+    .subscribe-box button{white-space:nowrap}
+
+    </style>
+  </head>
+  <body>
+      <div class="topbar py-2 bg-dark text-white">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    
+    <!-- Left Info -->
+    <div class="contact-info text-center text-md-start mb-2 mb-md-0">
+      <i class="fa fa-phone me-2"></i> +91 98765 43210 
+      <span class="d-none d-sm-inline">
+        <i class="fa fa-envelope ms-3 me-2"></i> info@royinformatics.com
+      </span>
+      <span class="d-none d-lg-inline">
+        <i class="fa fa-map-marker-alt ms-3 me-2"></i> Bankura, West Bengal
+      </span>
+    </div>
+
+    <!-- Right Social Icons -->
+    <div class="social-icons text-center">
+      <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+  </div>
+</div>
+
+    <!-- NAVBAR -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top custom-navbar"
+    >
+      <div class="container">
+        <!-- Logo -->
+        <a
+          class="navbar-brand d-flex align-items-center gap-2"
+          href="index.html"
+        >
+          <img src="image/logo.png" alt="logo" class="brand-logo" />
+          <div class="d-none d-sm-block">
+            <div class="brand-text">Roy <strong>Informatics</strong></div>
+            <small class="text-muted" style="font-size: 11px"
+              >Web & Digital Training</small
+            >
+          </div>
+        </a>
+
+        <!-- Toggle -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <!-- Home -->
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Packages</a>
+            <ul class="dropdown-menu p-3 text-white rounded-0">
+              <li><a href="varanasi.html" class="dropdown-item ">Spiritual Triangle Tour</a></li> -->
+            <!-- About with Dropdown -->
+            <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        About
+      </a>
+      <ul class="dropdown-menu p-3 border-0 rounded-3">
+        <li><a class="dropdown-item" href="who-we-are.html">Who We Are</a></li>
+        <li><a class="dropdown-item" href="training-reviews.html">Training Reviews</a></li>
+        <li><a class="dropdown-item" href="trainers.html">Our Trainers</a></li>
+        <li><a class="dropdown-item" href="placement-record.html">Placement Record</a></li>
+      </ul>
+    </li>
+    <!-- Training with Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="trainingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Training
+      </a>
+      <ul class="dropdown-menu p-3 border-0 rounded-3" aria-labelledby="trainingDropdown">
+        <li><a class="dropdown-item" href="courses.html">Our Programs</a></li>
+        <li><a class="dropdown-item" href="enrollment.html">Enrollment</a></li>
+        <li><a class="dropdown-item" href="upcoming-batch.html">Upcoming Batch</a></li>
+      </ul>
+    </li>
+
+    <!-- Select Centers with Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="centersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Select Centers
+      </a>
+      <ul class="dropdown-menu p-3 border-0 rounded-3" aria-labelledby="centersDropdown">
+        <li><a class="dropdown-item" href="center-kolkata.html">Kolkata</a></li>
+        <li><a class="dropdown-item" href="center-mumbai.html">Mumbai</a></li>
+        <li><a class="dropdown-item" href="center-delhi.html">Delhi</a></li>
+        <li><a class="dropdown-item" href="center-online.html">Online Center</a></li>
+      </ul>
+    </li>
+
+    <!-- Resources with Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Resources
+      </a>
+      <ul class="dropdown-menu border-0 rounded-3" aria-labelledby="resourcesDropdown">
+        <li><a class="dropdown-item" href="institutional-program.html">Institutional Program</a></li>
+        <li><a class="dropdown-item" href="corporate-training.html">Corporate Training Program</a></li>
+        <li><a class="dropdown-item" href="certification.html">Certification</a></li>
+        <li><a class="dropdown-item" href="life-at-ri.html">Life @ Roy Info</a></li>
+        <li><a class="dropdown-item" href="why-choose-ri.html">Why Choose Roy info</a></li>
+      </ul>
+    </li>
+
+
+            <!-- Contact -->
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+
+            <!-- Enroll Now Button -->
+            <li class="nav-item ms-lg-3">
+              <a
+                class="btn btn-warning btn-sm rounded-pill px-3 fw-bold enroll-btn"
+                href="enrollment.html"
+              >
+                Enroll Now
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <!-- 🌟 Taller About Us Hero Section -->
+    <section
+      class="hero w-100 mt-0"
+      style="
+        background: url('image/students-using-computers-stockcake.jpg')
+          center/cover no-repeat fixed;
+        position: relative;
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+      "
+    >
+      <!-- Dark overlay -->
+      <div
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 30, 0.6);
+        "
+      ></div>
+
+      <div class="container text-center text-white position-relative">
+        <h1 class="display-3 fw-bold">Our Trainers</h1>
+        <p class="lead mb-3">Hear we meet our expert professional trainers</p>
+
+        <p class="lead mt-3 mb-0">
+          <a href="index.html" class="btn btn-warning btn-sm rounded-pill px-3">
+            <i class="fa fa-home"></i> Home
+          </a>
+          <i class="fa-solid fa-angles-right mx-2"></i>
+          <span class="btn btn-light btn-sm rounded-pill px-3 disabled"
+            >About</span>
+          <i class="fa-solid fa-angles-right mx-2"></i>
+          <span class="btn btn-light btn-sm rounded-pill px-3 disabled"
+            >Our Trainers</span>
+          
+        </p>
+      </div>
+    </section>
+
+    <!-- About Trainers -->
+    <section class="py-5 bg-light">
+      <div class="container text-center">
+        <h2 class="fw-bold text-gradient mb-4">Roy Info Training Faculty</h2>
+        <p class="text-muted col-lg-8 mx-auto">
+          At <strong>Roy Informatics</strong>, our trainers are not just
+          educators—they’re real-world experts with years of industry
+          experience. From <span class="fw-bold">Web Development</span> to
+          <span class="fw-bold">Digital Marketing</span>, our mentors bring
+          practical skills, live project training, and career-focused guidance
+          to help you succeed. <br /><br />
+        </p>
+      </div>
+    </section>
+
+<!-- Trainers Section -->
+<section class="py-5">
+  <div class="container">
+    <h3 class="fw-bold text-center mb-5">🌟 Meet Our Professional Trainers 🌟</h3>
+    <div class="row g-4">
+
+      <!-- Trainer 1 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card trainer-card shadow-lg border-0 h-100 text-center p-3">
+          <div class="trainer-img">
+            <img src="image/t1.jpg" alt="Trainer 1" class="card-img-top rounded-circle shadow">
+          </div>
+          <div class="card-body">
+            <h5 class="fw-bold mt-3">Amit Roy</h5>
+            <p class="text-muted small">Web Design Expert</p>
+            <div class="social-icons-train mt-2">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trainer 2 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card trainer-card shadow-lg border-0 h-100 text-center p-3">
+          <div class="trainer-img">
+            <img src="image/t2.jpg" alt="Trainer 2" class="card-img-top rounded-circle shadow">
+          </div>
+          <div class="card-body">
+            <h5 class="fw-bold mt-3">Priya Sen</h5>
+            <p class="text-muted small">Digital Marketing Lead</p>
+            <div class="social-icons-train mt-2">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trainer 3 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card trainer-card shadow-lg border-0 h-100 text-center p-3">
+          <div class="trainer-img">
+            <img src="image/t3.jpg" alt="Trainer 3" class="card-img-top rounded-circle shadow">
+          </div>
+          <div class="card-body">
+            <h5 class="fw-bold mt-3">Ravi Kumar</h5>
+            <p class="text-muted small">SEO & Analytics Expert</p>
+            <div class="social-icons-train mt-2">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trainer 4 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card trainer-card shadow-lg border-0 h-100 text-center p-3">
+          <div class="trainer-img">
+            <img src="image/t4.jpg" alt="Trainer 4" class="card-img-top rounded-circle shadow">
+          </div>
+          <div class="card-body">
+            <h5 class="fw-bold mt-3">Sneha Patel</h5>
+            <p class="text-muted small">Content & Branding Strategist</p>
+            <div class="social-icons-train mt-2">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trainer 5 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card trainer-card shadow-lg border-0 h-100 text-center p-3">
+          <div class="trainer-img">
+            <img src="image/t5.jpg" alt="Trainer 5" class="card-img-top rounded-circle shadow">
+          </div>
+          <div class="card-body">
+            <h5 class="fw-bold mt-3">Rahul Das</h5>
+            <p class="text-muted small">Full Stack Developer</p>
+            <div class="social-icons-train mt-2">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trainer 6 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card trainer-card shadow-lg border-0 h-100 text-center p-3">
+          <div class="trainer-img">
+            <img src="image/t6.jpg" alt="Trainer 6" class="card-img-top rounded-circle shadow">
+          </div>
+          <div class="card-body">
+            <h5 class="fw-bold mt-3">Anjali Mehta</h5>
+            <p class="text-muted small">UI/UX Designer</p>
+            <div class="social-icons-train mt-2">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+    <!-- Call to Action -->
+    <section class="py-5 text-center cta-section">
+      <div class="container">
+        <h3 class="fw-bold mb-3 text-white">🚀 Want to Learn From the Best?</h3>
+        <p class="text-light mb-4">
+          Join our upcoming batches and kickstart your journey with expert
+          mentors at <span class="fw-bold text-warning">Roy Informatics</span>.
+        </p>
+        <a
+          href="enrollment.html"
+          class="btn btn-cta px-5 py-3 fw-bold shadow-lg"
+          >Enroll Now</a
+        >
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5 fw-bold">
+          Student Success Stories
+          <span
+            class="d-block mx-auto mt-2"
+            style="
+              width: 80px;
+              height: 3px;
+              background-color: #ffc107;
+              border-radius: 2px;
+            "
+          ></span>
+        </h2>
+
+        <div
+          id="testimonialCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+          data-bs-interval="4000"
+        >
+          <div class="carousel-inner">
+            <!-- Carousel item 1 -->
+            <div class="carousel-item active">
+              <div class="row g-4 justify-content-center">
+                <!-- Testimonial 1 -->
+                <div class="col-md-4">
+                  <div
+                    class="p-4 rounded shadow bg-info bg-opacity-10 h-100 text-center"
+                  >
+                    <div class="text-warning mb-2">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ><i class="far fa-star"></i>
+                    </div>
+                    <p class="fst-italic">
+                      “I built my first client website in the 2nd month.
+                      Trainers are supportive and practical.”
+                    </p>
+                    <div
+                      class="d-flex align-items-center justify-content-center mt-3"
+                    >
+                      <img
+                        src="image/s1.webp"
+                        class="rounded-circle me-3"
+                        width="50"
+                        height="50"
+                        alt="Shreya"
+                      />
+                      <div>
+                        <strong>Anish Dey.</strong><br />
+                        <small class="text-muted">Web Design Student</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="col-md-4">
+                  <div
+                    class="p-4 rounded shadow bg-warning bg-opacity-10 h-100 text-center"
+                  >
+                    <div class="text-warning mb-2">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ><i class="fas fa-star"></i>
+                    </div>
+                    <p class="fst-italic">
+                      “Got freelance projects and learned to run ads
+                      profitably.”
+                    </p>
+                    <div
+                      class="d-flex align-items-center justify-content-center mt-3"
+                    >
+                      <img
+                        src="image/s2.jpg"
+                        class="rounded-circle me-3"
+                        width="50"
+                        height="50"
+                        alt="Manish"
+                      />
+                      <div>
+                        <strong>Manish Kumar</strong><br />
+                        <small class="text-muted">Marketing Student</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div
+                    class="p-4 rounded shadow bg-dark bg-opacity-10 h-100 text-center"
+                  >
+                    <div class="text-warning mb-2">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ><i class="fas fa-star"></i>
+                    </div>
+                    <p class="fst-italic">
+                      “Got freelance projects and learned to run ads
+                      profitably.”
+                    </p>
+                    <div
+                      class="d-flex align-items-center justify-content-center mt-3"
+                    >
+                      <img
+                        src="image/s3.jpeg"
+                        class="rounded-circle me-3"
+                        width="50"
+                        height="50"
+                        alt="Manish"
+                      />
+                      <div>
+                        <strong>Sneha Lal</strong><br />
+                        <small class="text-muted">Marketing Student</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Carousel item 2 -->
+            <div class="carousel-item">
+              <div class="row g-4 justify-content-center">
+                <!-- Testimonial 3 -->
+                <div class="col-md-4">
+                  <div
+                    class="p-4 rounded shadow bg-primary bg-opacity-10 h-100 text-center"
+                  >
+                    <div class="text-warning mb-2">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ><i class="far fa-star"></i>
+                    </div>
+                    <p class="fst-italic">
+                      “Thanks to the mentors, I cracked my first digital
+                      marketing job interview.”
+                    </p>
+                    <div
+                      class="d-flex align-items-center justify-content-center mt-3"
+                    >
+                      <img
+                        src="image/s4.jpeg"
+                        class="rounded-circle me-3"
+                        width="50"
+                        height="50"
+                        alt="Aditi"
+                      />
+                      <div>
+                        <strong>Aditi Patra</strong><br />
+                        <small class="text-muted"
+                          >Digital Marketing Student</small
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Testimonial 4 -->
+                <div class="col-md-4">
+                  <div
+                    class="p-4 rounded shadow bg-success bg-opacity-10 h-100 text-center"
+                  >
+                    <div class="text-warning mb-2">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ><i class="fas fa-star"></i>
+                    </div>
+                    <p class="fst-italic">
+                      “The curriculum is practical and industry-focused. It gave
+                      me confidence to start freelancing.”
+                    </p>
+                    <div
+                      class="d-flex align-items-center justify-content-center mt-3"
+                    >
+                      <img
+                        src="image/s5.jpeg"
+                        class="rounded-circle me-3"
+                        width="50"
+                        height="50"
+                        alt="Priya"
+                      />
+                      <div>
+                        <strong>Priya Sen</strong><br />
+                        <small class="text-muted">Freelance Student</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Indicators (now directly under the cards) -->
+          <div class="text-center mt-4">
+            <div class="carousel-indicators position-static">
+              <button
+                type="button"
+                data-bs-target="#testimonialCarousel"
+                data-bs-slide-to="0"
+                class="active"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#testimonialCarousel"
+                data-bs-slide-to="1"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+   <footer class="footer bg-dark text-light pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+
+      <!-- About -->
+      <div class="col-md-3 mb-4">
+        <h5 class="fw-bold text-warning mb-3">Roy Informatics</h5>
+        <p class="small text-light opacity-75">
+         Practical web design & digital marketing training. Gain hands-on skills, work on live projects, start freelancing, and prepare yourself for high-paying career opportunities in the digital world.
+        </p>
+        <div class="social-icons mt-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold mb-4 text-uppercase">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="index.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Home</a></li>
+          <li class="mb-2"><a href="courses.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Our Programs</a></li>
+          <li class="mb-2"><a href="enrollment.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Enrollment</a></li>
+          <li class="mb-2"><a href="training-reviews.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Training Reviews</a></li>
+          <li class="mb-2"><a href="who-we-are.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Who we are</a></li>
+          <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold mb-4 text-uppercase">Contact</h6>
+        <p class="small mb-3"><i class="fa fa-phone me-2 text-warning"></i> +91 98765 43210</p>
+        <p class="small mb-3"><i class="fa fa-envelope me-2 text-warning"></i> info@royinformatics.com</p>
+        <p class="small mb-0"><i class="fa fa-map-marker-alt me-2 text-warning"></i> Bankura, West Bengal</p>
+      </div>
+
+      <!-- Subscribe -->
+     <div class="col-md-3 mb-4">
+  <h6 class="fw-bold mb-3 text-uppercase">Corporate Office</h6>
+  <p class="small mb-1">
+    🏢 6/1, Sarat Chatterjee Ave, near Menoka Cinema, Lake Range, Kalighat, Kolkata, West Bengal 700029
+  </p>
+  <p class="small mb-1">📞 +91 8800505151</p>
+  <p class="small mb-3">📧 info@royinformatics.com</p>
+
+  <h6 class="fw-bold mb-3 text-uppercase">Subscribe & Follow Us</h6>
+
+  <div class="social-icons">
+    <a href="#" class="me-2 text-warning"><i class="fab fa-facebook fa-lg"></i></a>
+    <a href="#" class="me-2 text-warning"><i class="fab fa-twitter fa-lg"></i></a>
+    <a href="#" class="me-2 text-warning"><i class="fab fa-instagram fa-lg"></i></a>
+    <a href="#" class="text-warning"><i class="fab fa-linkedin fa-lg"></i></a>
+  </div>
+</div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="border-top border-secondary mt-4 pt-3 text-center small">
+      &copy; <span id="year"></span> <span class="text-warning">Roy Informatics</span> — All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('formAlert').classList.remove('d-none');
+  this.reset();
+});
+</script>
+ <script>
+// Prevent click from immediately closing dropdown on hover
+document.querySelectorAll('.navbar .dropdown').forEach(function (dropdown) {
+  dropdown.addEventListener('mouseover', function () {
+    const menu = this.querySelector('.dropdown-menu');
+    if (menu) {
+      new bootstrap.Dropdown(this.querySelector('.dropdown-toggle')).show();
+    }
+  });
+  dropdown.addEventListener('mouseleave', function () {
+    const menu = this.querySelector('.dropdown-menu');
+    if (menu) {
+      new bootstrap.Dropdown(this.querySelector('.dropdown-toggle')).hide();
+    }
+  });
+});
+    </script>
+  </body>
+</html>

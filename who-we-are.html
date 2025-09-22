@@ -55,6 +55,32 @@
   font-weight: 500;
   letter-spacing: 0.5px;
 }
+/* Remove blue focus outline and box-shadow on navbar links */
+.navbar .nav-link:focus,
+.navbar .nav-link:active,
+.navbar .dropdown-toggle:focus,
+.navbar .dropdown-item:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.05rem;   /* default ~1rem, adjust as needed */
+    font-weight: 500;     /* makes it a bit bolder */
+    padding: 0.7rem 1rem; /* increase clickable area */
+  }
+
+  /* Add spacing between nav items */
+  .navbar-nav .nav-item {
+    margin-left: 12px;   /* space between items */
+    margin-right: 12px;
+  }
+
+  /* Optional: Make dropdown font slightly larger */
+  .dropdown-menu .dropdown-item {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
 
 /* Navbar links */
 .custom-navbar .nav-link {
@@ -250,6 +276,11 @@
   padding-left: 5px;
 }
 
+.brand-text {
+    color: #007bff;
+    font-weight: 600;
+  }
+
 /* Social Icons */
 .social-icons a {
   display: inline-block;
@@ -286,29 +317,42 @@
   min-height: 300px;
   background: #111; /* darker than bg-dark */
 }
+ .subscribe-box{background:#fff;padding:1rem;border-radius:8px;display:flex;gap:8px}
+    .subscribe-box input{flex:1;border:none;outline:none;padding:0.6rem}
+    .subscribe-box button{white-space:nowrap}
+
 
   </style>
 </head>
 <body>
 
-   <div class="topbar">
-    <div class="container d-flex justify-content-between">
-      <div>
-        <i class="fa fa-phone me-2"></i> +91 98765 43210 
-        <i class="fa fa-envelope ms-3 me-2"></i> info@royinformatics.com 
+     <div class="topbar py-2 bg-dark text-white">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    
+    <!-- Left Info -->
+    <div class="contact-info text-center text-md-start mb-2 mb-md-0">
+      <i class="fa fa-phone me-2"></i> +91 98765 43210 
+      <span class="d-none d-sm-inline">
+        <i class="fa fa-envelope ms-3 me-2"></i> info@royinformatics.com
+      </span>
+      <span class="d-none d-lg-inline">
         <i class="fa fa-map-marker-alt ms-3 me-2"></i> Bankura, West Bengal
-      </div>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
+      </span>
     </div>
+
+    <!-- Right Social Icons -->
+    <div class="social-icons text-center">
+      <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
   </div>
+</div>
 
   <!-- NAVBAR -->
-  <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top custom-navbar">
+<!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top custom-navbar">
   <div class="container">
     <!-- Logo -->
     <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
@@ -327,19 +371,82 @@
 
     <!-- Menu -->
     <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link " href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
-        
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item ms-lg-3">
-          <a class="btn btn-warning btn-sm rounded-pill px-3 fw-bold enroll-btn" href="#contact">
-            Enroll Now
-          </a>
-        </li>
+  <ul class="navbar-nav ms-auto align-items-lg-center">
+
+    <!-- Home -->
+    <li class="nav-item">
+      <a class="nav-link" href="index.html">Home</a>
+    </li>
+<!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Packages</a>
+            <ul class="dropdown-menu p-3 text-white rounded-0">
+              <li><a href="varanasi.html" class="dropdown-item ">Spiritual Triangle Tour</a></li> -->
+    <!-- About with Dropdown -->
+   <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        About
+      </a>
+      <ul class="dropdown-menu p-3 border-0 rounded-3">
+        <li><a class="dropdown-item" href="who-we-are.html">Who We Are</a></li>
+        <li><a class="dropdown-item" href="training-reviews.html">Training Reviews</a></li>
+        <li><a class="dropdown-item" href="trainers.html">Our Trainers</a></li>
+        <li><a class="dropdown-item" href="placement-record.html">Placement Record</a></li>
       </ul>
-    </div>
+    </li>
+    <!-- Training with Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="trainingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Training
+      </a>
+      <ul class="dropdown-menu p-3 border-0 rounded-3" aria-labelledby="trainingDropdown">
+        <li><a class="dropdown-item" href="courses.html">Our Programs</a></li>
+        <li><a class="dropdown-item" href="enrollment.html">Enrollment</a></li>
+        <li><a class="dropdown-item" href="upcoming-batch.html">Upcoming Batch</a></li>
+      </ul>
+    </li>
+
+    <!-- Select Centers with Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="centersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Select Centers
+      </a>
+      <ul class="dropdown-menu p-3 border-0 rounded-3" aria-labelledby="centersDropdown">
+        <li><a class="dropdown-item" href="center-kolkata.html">Kolkata</a></li>
+        <li><a class="dropdown-item" href="center-mumbai.html">Mumbai</a></li>
+        <li><a class="dropdown-item" href="center-delhi.html">Delhi</a></li>
+        <li><a class="dropdown-item" href="center-online.html">Online Center</a></li>
+      </ul>
+    </li>
+
+    <!-- Resources with Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Resources
+      </a>
+      <ul class="dropdown-menu border-0 rounded-3" aria-labelledby="resourcesDropdown">
+        <li><a class="dropdown-item" href="institutional-program.html">Institutional Program</a></li>
+        <li><a class="dropdown-item" href="corporate-training.html">Corporate Training Program</a></li>
+        <li><a class="dropdown-item" href="certification.html">Certification</a></li>
+        <li><a class="dropdown-item" href="life-at-ri.html">Life @ Roy Info</a></li>
+        <li><a class="dropdown-item" href="why-choose-ri.html">Why Choose Roy info</a></li>
+      </ul>
+    </li>
+
+
+    <!-- Contact -->
+    <li class="nav-item">
+      <a class="nav-link" href="contact.html">Contact</a>
+    </li>
+
+    <!-- Enroll Now Button -->
+    <li class="nav-item ms-lg-3">
+      <a class="btn btn-warning btn-sm rounded-pill px-3 fw-bold enroll-btn" href="enrollment.html">
+        Enroll Now
+      </a>
+    </li>
+  </ul>
+</div>
+
   </div>
 </nav>
 
@@ -363,7 +470,9 @@
         <i class="fa fa-home"></i> Home
       </a>
       <i class="fa-solid fa-angles-right mx-2"></i>
-      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">About Us</span>
+      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">About</span>
+      <i class="fa-solid fa-angles-right mx-2"></i>
+      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">Who we are</span>
     </p>
   </div>
 </section>
@@ -401,7 +510,7 @@
         </p>
 
         <!-- Call-to-action -->
-        <a href="#courses" class="btn btn-warning px-4 rounded-pill shadow-sm">
+        <a href="courses.html" class="btn btn-warning px-4 rounded-pill shadow-sm">
           Explore Courses
         </a>
       </div>
@@ -524,7 +633,7 @@
           <div class="card-body text-center">
             <h5 class="card-title fw-bold">Frontend Web Design</h5>
             <p class="card-text small text-muted">Learn HTML, CSS, JavaScript, and Bootstrap to build modern, responsive websites.</p>
-            <a href="#contact" class="btn btn-warning w-100 rounded-pill shadow-sm">Enroll Now</a>
+            <a href="enrollment.html" class="btn btn-warning w-100 rounded-pill shadow-sm">Enroll Now</a>
           </div>
         </div>
       </div>
@@ -539,7 +648,7 @@
           <div class="card-body text-center">
             <h5 class="card-title fw-bold">Digital Marketing</h5>
             <p class="card-text small text-muted">Master SEO, Google Ads, Facebook Ads, and Social Media strategies to grow businesses.</p>
-            <a href="#contact" class="btn btn-warning w-100 rounded-pill shadow-sm">Enroll Now</a>
+            <a href="enrollment.html" class="btn btn-warning w-100 rounded-pill shadow-sm">Enroll Now</a>
           </div>
         </div>
       </div>
@@ -554,7 +663,7 @@
           <div class="card-body text-center">
             <h5 class="card-title fw-bold">WordPress & Freelancing</h5>
             <p class="card-text small text-muted">Build WordPress websites and learn freelancing skills to earn online from real projects.</p>
-            <a href="#contact" class="btn btn-warning w-100 rounded-pill shadow-sm">Enroll Now</a>
+            <a href="enrollment.html" class="btn btn-warning w-100 rounded-pill shadow-sm">Enroll Now</a>
           </div>
         </div>
       </div>
@@ -591,7 +700,7 @@
                   <a href="#" class="social-instructor"><i class="fab fa-linkedin-in"></i></a>
                   <a href="#" class="social-instructor"><i class="fab fa-twitter"></i></a>
                 </div>
-                <a href="#contact" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
+                <a href="contact.html" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
               </div>
             </div>
 
@@ -605,7 +714,7 @@
                   <a href="#" class="social-instructor"><i class="fab fa-linkedin-in"></i></a>
                   <a href="#" class="social-instructor"><i class="fab fa-twitter"></i></a>
                 </div>
-                <a href="#contact" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
+                <a href="contact.html" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
               </div>
             </div>
 
@@ -619,7 +728,7 @@
                   <a href="#" class="social-instructor"><i class="fab fa-linkedin-in"></i></a>
                   <a href="#" class="social-instructor"><i class="fab fa-twitter"></i></a>
                 </div>
-                <a href="#contact" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
+                <a href="contact.html" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
               </div>
             </div>
 
@@ -639,7 +748,7 @@
                   <a href="#" class="social-instructor"><i class="fab fa-linkedin-in"></i></a>
                   <a href="#" class="social-instructor"><i class="fab fa-twitter"></i></a>
                 </div>
-                <a href="#contact" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
+                <a href="contact.html" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
               </div>
             </div>
 
@@ -653,7 +762,7 @@
                   <a href="#" class="social-instructor"><i class="fab fa-linkedin-in"></i></a>
                   <a href="#" class="social-instructor"><i class="fab fa-twitter"></i></a>
                 </div>
-                <a href="#contact" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
+                <a href="contact.html" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
               </div>
             </div>
 
@@ -667,7 +776,7 @@
                   <a href="#" class="social-instructor"><i class="fab fa-linkedin-in"></i></a>
                   <a href="#" class="social-instructor"><i class="fab fa-twitter"></i></a>
                 </div>
-                <a href="#contact" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
+                <a href="contact.html" class="btn btn-warning btn-sm rounded-pill px-3">Contact</a>
               </div>
             </div>
 
@@ -685,8 +794,6 @@
     <a href="contact.html" class="btn btn-dark rounded-pill px-4">Join Now</a>
   </section>
 
-  <!-- FOOTER -->
-  <<!-- FOOTER -->
 <footer class="footer bg-dark text-light pt-5 pb-4">
   <div class="container">
     <div class="row">
@@ -695,7 +802,7 @@
       <div class="col-md-3 mb-4">
         <h5 class="fw-bold text-warning mb-3">Roy Informatics</h5>
         <p class="small text-light opacity-75">
-          Practical web design & digital marketing training. Build skills, get projects, start freelancing.
+         Practical web design & digital marketing training. Gain hands-on skills, work on live projects, start freelancing, and prepare yourself for high-paying career opportunities in the digital world.
         </p>
         <div class="social-icons mt-3">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -708,10 +815,12 @@
       <div class="col-md-3 mb-4">
         <h6 class="fw-bold mb-4 text-uppercase">Quick Links</h6>
         <ul class="list-unstyled small">
-          <li class="mb-2"><a href="#courses" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Home</a></li>
-          <li class="mb-2"><a href="#courses" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Courses</a></li>
-          <li class="mb-2"><a href="#about" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>About</a></li>
-          <li><a href="#contact" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Contact</a></li>
+          <li class="mb-2"><a href="index.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Home</a></li>
+          <li class="mb-2"><a href="courses.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Our Programs</a></li>
+          <li class="mb-2"><a href="enrollment.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Enrollment</a></li>
+          <li class="mb-2"><a href="training-reviews.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Training Reviews</a></li>
+          <li class="mb-2"><a href="who-we-are.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Who we are</a></li>
+          <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angles-right me-2"></i>Contact</a></li>
         </ul>
       </div>
 
@@ -724,16 +833,24 @@
       </div>
 
       <!-- Subscribe -->
-      <div class="col-md-3 mb-4">
-        <h6 class="fw-bold mb-4 text-uppercase">Subscribe</h6>
-        <p class="small opacity-75">
-          Enter your email to get our newsletter and updates.
-        </p>
-        <form class="subscribe-box d-flex">
-          <input type="email" class="form-control form-control-sm me-2 rounded-pill bg-dark text-light border-warning" placeholder="Enter email" required>
-          <button class="btn btn-warning btn-sm rounded-pill px-3">Subscribe</button>
-        </form>
-      </div>
+     <div class="col-md-3 mb-4">
+  <h6 class="fw-bold mb-3 text-uppercase">Corporate Office</h6>
+  <p class="small mb-1">
+    🏢 6/1, Sarat Chatterjee Ave, near Menoka Cinema, Lake Range, Kalighat, Kolkata, West Bengal 700029
+  </p>
+  <p class="small mb-1">📞 +91 8800505151</p>
+  <p class="small mb-3">📧 info@royinformatics.com</p>
+
+  <h6 class="fw-bold mb-3 text-uppercase">Subscribe & Follow Us</h6>
+
+  <div class="social-icons">
+    <a href="#" class="me-2 text-warning"><i class="fab fa-facebook fa-lg"></i></a>
+    <a href="#" class="me-2 text-warning"><i class="fab fa-twitter fa-lg"></i></a>
+    <a href="#" class="me-2 text-warning"><i class="fab fa-instagram fa-lg"></i></a>
+    <a href="#" class="text-warning"><i class="fab fa-linkedin fa-lg"></i></a>
+  </div>
+</div>
+
     </div>
 
     <!-- Bottom -->
@@ -742,10 +859,37 @@
     </div>
   </div>
 </footer>
-  <!-- JS -->
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('formAlert').classList.remove('d-none');
+  this.reset();
+});
+</script>
+ <script>
+// Prevent click from immediately closing dropdown on hover
+document.querySelectorAll('.navbar .dropdown').forEach(function (dropdown) {
+  dropdown.addEventListener('mouseover', function () {
+    const menu = this.querySelector('.dropdown-menu');
+    if (menu) {
+      new bootstrap.Dropdown(this.querySelector('.dropdown-toggle')).show();
+    }
+  });
+  dropdown.addEventListener('mouseleave', function () {
+    const menu = this.querySelector('.dropdown-menu');
+    if (menu) {
+      new bootstrap.Dropdown(this.querySelector('.dropdown-toggle')).hide();
+    }
+  });
+});
+</script>
 </body>
 </html>

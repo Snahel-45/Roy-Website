@@ -3,17 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Courses | Roy Informatics</title>
-  <!-- Bootstrap & Font Awesome -->
+  <title>Roy Info - Kolkata Center</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
-    :root {
-      --brand:#ffb703; 
+     :root{
+    --brand:#ffb703; 
       --dark:#0f1724;
+      --muted:#6b7280;
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
-     .topbar{background:#071028;color:#fff;font-size:14px;padding:6px 0;}
+    body{background:#fff; color:var(--dark);}
+     .section-title {font-weight:700; font-size:2rem; color:#0f1724;}
+  .card-cert {transition:all 0.3s ease;}
+  .card-cert:hover {transform:translateY(-10px) scale(1.02); box-shadow:0 15px 40px rgba(0,0,0,0.15);}
+  .glow-btn {transition:all 0.3s ease;}
+  .glow-btn:hover {box-shadow:0 0 25px rgba(255,183,3,0.8); transform:scale(1.05);}
+
+  
+
+    /* topbar */
+    .topbar{background:#071028;color:#fff;font-size:14px;padding:6px 0;}
     .topbar a{color:#ffb703;margin-left:12px;}
 
     .social-icons a {
@@ -29,11 +39,13 @@
   line-height: 34px;
   transition: all 0.3s ease;
 }
-.brand-text {
-    color: #007bff;
-    font-weight: 600;
-  }
-  
+.social-icons a:hover {
+  background: #ffb703;
+  color: #111;
+  border-color: #ffb703;
+}
+    /* navbar */
+    /* Brand logo hover */
 .brand-logo {
   height: 45px;
   width: 45px;
@@ -43,6 +55,11 @@
 .brand-logo:hover {
   transform: rotate(-5deg) scale(1.1);
 }
+
+.brand-text {
+    color: #007bff;
+    font-weight: 600;
+  }
 
 /* Navbar */
 .custom-navbar {
@@ -114,71 +131,162 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.social-icons a:hover {
-  background: #ffb703;
-  color: #111;
-  border-color: #ffb703;
-}
-    body { background:#f8f9fa; color:var(--dark); }
-    
-    h4 { letter-spacing: 0.5px; }
-    
-    .course-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-radius: 12px;
-       height: 220px;       /* Fixed height */
-  object-fit: cover;   /* Crop and fill without distortion */
-  border-top-left-radius: 0.5rem; 
-  border-top-right-radius: 0.5rem; /* keep rounded corners */
-    }
-    .course-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-    }
-    .course-card img {
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
-      transition: transform 0.4s ease;
-       height: 220px;       /* Fixed height */
-  object-fit: cover;   /* Crop and fill without distortion */
-  border-top-left-radius: 0.5rem; 
-  border-top-right-radius: 0.5rem; /* keep rounded corners */
-    }
-    .course-card:hover img { transform: scale(1.05); }
-    
-    .badge {
-      font-size: 0.85rem;
-      border-radius: 30px;
-      font-weight: 600;
-    }
-    .btn-yellow {
-      background: var(--brand);
-      color: #111;
-      font-weight: 500;
-    }
-    .btn-yellow:hover {
-      background: #ff9800;
-      color: #fff;
-    }
-    
-    .page-header {
-      padding: 80px 0 40px;
-      background: url('image/students-using-computers-stockcake.jpg') center/cover no-repeat fixed;
-      position: relative;
-      color: #fff;
-      text-align: center;
-    }
-    .page-header::after {
-      content:"";
-      position:absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      background: rgba(0,0,30,0.6);
-      z-index:0;
-    }
-    .page-header .container { position:relative; z-index:1; }
 
-    .footer-link {
+.about-kolkata {
+    background: linear-gradient(135deg, #0b00e0, #005f6f, #0004e7);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-kolkata::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+  }
+
+  .about-kolkata::after {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    right: -60px;
+    width: 250px;
+    height: 250px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    animation: float 8s infinite ease-in-out reverse;
+  }
+
+  .about-box {
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    max-width: 800px;
+    transition: 0.3s;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  }
+
+  .about-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  .about-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #fefefe;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.05); }
+    100% { transform: translateY(0) scale(1); }
+  }
+
+
+.courses-offered .highlight-box {
+    background: #fff;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    border: 1px solid #eee;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .courses-offered .highlight-box:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    border-color: transparent;
+  }
+
+  .courses-offered .icon-circle {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #fff;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    transition: 0.4s ease;
+  }
+
+  .courses-offered .highlight-box:nth-child(2) .icon-circle {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+  }
+
+  .courses-offered .highlight-box:nth-child(3) .icon-circle {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+  }
+
+  .courses-offered .highlight-box:hover .icon-circle {
+    transform: rotate(15deg) scale(1.1);
+  }
+
+  .courses-offered h5 {
+    margin-top: 10px;
+    font-size: 1.25rem;
+    color: #333;
+  }
+
+  .courses-offered p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/kolkata-center.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 120px 0;
+    }
+    .hero h1 {
+      font-weight: 800;
+      font-size: 3rem;
+    }
+    .section-title {
+      font-weight: 700;
+      color: #2c3e50;
+    }
+    .highlight-box {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      padding: 30px;
+    }
+    .highlight-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+    .icon-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #f39c12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+    .cta-section {
+      background: linear-gradient(90deg, #f39c12, #e67e22);
+      color: #fff;
+      padding: 60px 20px;
+      border-radius: 15px;
+    }
+
+ .footer-link {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: all 0.3s ease;
@@ -187,6 +295,11 @@
   color: #ffb703;
   padding-left: 5px;
 }
+
+.brand-text {
+    color: #007bff;
+    font-weight: 600;
+  }
 
 /* Social Icons */
 .social-icons a {
@@ -224,15 +337,14 @@
   min-height: 300px;
   background: #111; /* darker than bg-dark */
 }
-
  .subscribe-box{background:#fff;padding:1rem;border-radius:8px;display:flex;gap:8px}
     .subscribe-box input{flex:1;border:none;outline:none;padding:0.6rem}
     .subscribe-box button{white-space:nowrap}
-
   </style>
 </head>
 <body>
 
+    
        <div class="topbar py-2 bg-dark text-white">
   <div class="container d-flex flex-wrap justify-content-between align-items-center">
     
@@ -366,206 +478,129 @@
   <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,30,0.6);"></div>
 
   <div class="container text-center text-white position-relative">
-    <h1 class="display-3 fw-bold">Our Programs</h1>
-    <p class="lead mb-3">Learn more about Roy Informatics</p>
+    <h1 class="display-3 fw-bold">Welcome to Roy Info – Kolkata Center</h1>
+    <p class="lead mb-3">Transforming careers with world-class training, right in the heart of Kolkata.</p>
     
     <p class="lead mt-3 mb-0">
       <a href="index.html" class="btn btn-warning btn-sm rounded-pill px-3">
         <i class="fa fa-home"></i> Home
       </a>
       <i class="fa-solid fa-angles-right mx-2"></i>
-      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">Training</span>
+      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">Select Centers</span>
       <i class="fa-solid fa-angles-right mx-2"></i>
-      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">Our Programs</span>
+      <span class="btn btn-light btn-sm rounded-pill px-3 disabled">Kolkata</span>
     </p>
   </div>
 </section>
 
+  <!-- About Kolkata Center -->
+ <section class="py-5 about-kolkata">
+  <div class="container text-center">
+    <div class="about-box p-5 mx-auto">
+      <h2 class="section-title mb-3 text-white">🏢 About Our Kolkata Center</h2>
+      <p class="about-text mx-auto">
+        The Roy Info Kolkata Center is a hub of innovation and skill development.  
+        Equipped with modern classrooms, labs, and expert faculty, we ensure students 
+        gain hands-on exposure along with industry certifications.  
+        Conveniently located for students across the city, our center is dedicated to excellence.
+      </p>
+    </div>
+  </div>
+</section>
 
 
-
-<!-- WEB DEVELOPMENT COURSES -->
-<section class="py-5">
+<section class="py-5 courses-offered">
   <div class="container">
-    <h2 class="mb-4 text-center">💻 Web Development Courses
-        <span class="d-block mx-auto mt-2" 
-                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
-    </h2>
+    <h2 class="section-title text-center mb-5">🎓 Courses Offered at Kolkata Center</h2>
     <div class="row g-4">
       
-      <!-- Courses -->
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/1.webp" class="card-img-top">
-        <span class="badge bg-warning text-dark position-absolute m-3 px-3 py-2">Frontend</span>
-        <div class="card-body text-center"><h5>HTML, CSS & Bootstrap</h5><p class="small text-muted">Build modern, responsive websites with frontend basics.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/2.jpg" class="card-img-top">
-        <span class="badge bg-primary text-white position-absolute m-3 px-3 py-2">JavaScript</span>
-        <div class="card-body text-center"><h5>JavaScript & ES6</h5><p class="small text-muted">Interactive websites with vanilla JS, ES6, and APIs.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/3.png" class="card-img-top">
-        <span class="badge bg-success text-white position-absolute m-3 px-3 py-2">React</span>
-        <div class="card-body text-center"><h5>React Development</h5><p class="small text-muted">Build SPAs with React, hooks, router & state management.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/4.png" class="card-img-top">
-        <span class="badge bg-dark text-white position-absolute m-3 px-3 py-2">Node.js</span>
-        <div class="card-body text-center"><h5>Node.js & Express</h5><p class="small text-muted">Server-side programming with REST APIs & authentication.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/5.png" class="card-img-top">
-        <span class="badge bg-secondary text-white position-absolute m-3 px-3 py-2">Database</span>
-        <div class="card-body text-center"><h5>MongoDB & SQL</h5><p class="small text-muted">Master databases, queries & schema design.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/6.jpg" class="card-img-top">
-        <span class="badge bg-danger text-white position-absolute m-3 px-3 py-2">Full Stack</span>
-        <div class="card-body text-center"><h5>MERN Full Stack</h5><p class="small text-muted">Complete MERN stack with real-world projects.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-    </div>
-  </div>
-</section>
-
-<!-- DIGITAL MARKETING COURSES -->
-<section class="py-5 bg-light">
-  <div class="container">
-    <h2 class="mb-4 text-center">📈 Digital Marketing Courses 
-        <span class="d-block mx-auto mt-2" 
-                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
-    </h2>
-    <div class="row g-4">
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/7.png" class="card-img-top">
-        <span class="badge bg-info text-dark position-absolute m-3 px-3 py-2">SEO</span>
-        <div class="card-body text-center"><h5>Advanced SEO</h5><p class="small text-muted">On-page, off-page & technical SEO to rank websites.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/8.jpg" class="card-img-top">
-        <span class="badge bg-danger text-white position-absolute m-3 px-3 py-2">Ads</span>
-        <div class="card-body text-center"><h5>Google Ads & PPC</h5><p class="small text-muted">Run profitable campaigns, analytics & remarketing.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/9.webp" class="card-img-top">
-        <span class="badge bg-secondary text-white position-absolute m-3 px-3 py-2">SMM</span>
-        <div class="card-body text-center"><h5>Social Media Marketing</h5><p class="small text-muted">Grow Facebook, Instagram & LinkedIn organically.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/10.png" class="card-img-top">
-        <span class="badge bg-warning text-dark position-absolute m-3 px-3 py-2">Email</span>
-        <div class="card-body text-center"><h5>Email Marketing</h5><p class="small text-muted">Design, send & automate campaigns for ROI.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/11.png" class="card-img-top">
-        <span class="badge bg-dark text-white position-absolute m-3 px-3 py-2">Analytics</span>
-        <div class="card-body text-center"><h5>Google Analytics</h5><p class="small text-muted">Track & analyze website traffic with GA4.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/12.jpg" class="card-img-top">
-        <span class="badge bg-primary text-white position-absolute m-3 px-3 py-2">Content</span>
-        <div class="card-body text-center"><h5>Content Marketing</h5><p class="small text-muted">Learn storytelling, blogging & content SEO.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EXTRA SKILLS -->
-<section class="py-5">
-  <div class="container">
-    <h2 class="mb-4 text-center">🎨 Extra Skill Courses <span class="d-block mx-auto mt-2" 
-                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span></h2>
-    <div class="row g-4">
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/13.jpeg" class="card-img-top">
-        <span class="badge bg-info text-dark position-absolute m-3 px-3 py-2">Design</span>
-        <div class="card-body text-center"><h5>Graphic Design</h5><p class="small text-muted">Learn Photoshop, Illustrator & branding design.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/14.webp" class="card-img-top">
-        <span class="badge bg-warning text-dark position-absolute m-3 px-3 py-2">Freelancing</span>
-        <div class="card-body text-center"><h5>Freelancing Skills</h5><p class="small text-muted">Work on Fiverr, Upwork & freelancing platforms.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-      <div class="col-md-4"><div class="card course-card border-0 shadow-sm h-100">
-        <img src="image/15.jpeg" class="card-img-top">
-        <span class="badge bg-success text-white position-absolute m-3 px-3 py-2">Data</span>
-        <div class="card-body text-center"><h5>Data Analytics</h5><p class="small text-muted">Excel, Power BI & data visualization for insights.</p><a href="enrollment.html" class="btn btn-yellow w-100 rounded-pill">Enroll Now</a></div>
-      </div></div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT FORM -->
-<!-- CONTACT FORM -->
-<section id="contact" class="py-5 bg-light">
-  <div class="container">
-    <div class="row justify-content-center">
-      
-      <!-- Heading -->
-      <div class="col-lg-8 text-center mb-4">
-        <h3 class="fw-bold position-relative d-inline-block">
-          Have any question?
-          <span class="d-block mx-auto mt-2" 
-                style="width: 80px; height: 3px; background-color: #ffc107; border-radius: 2px;"></span>
-        </h3>
-        <p class="text-muted mt-3">
-          Your email address will not be published. Required fields are marked *
-        </p>
+      <!-- Web Development -->
+      <div class="col-md-4">
+        <div class="highlight-box p-4 text-center shadow-sm">
+          <div class="icon-circle mb-3"><i class="fa-solid fa-code"></i></div>
+          <h5 class="fw-bold">Web Development</h5>
+          <p class="text-muted">Full Stack Development with HTML, CSS, JS, React, Node.js & projects.</p>
+        </div>
       </div>
-      
-      <!-- Form -->
-      <div class="col-lg-8">
-        <form class="p-4 bg-white rounded-4 shadow-lg">
-          
-          <!-- Full Name -->
-          <div class="mb-3">
-            <label for="name" class="form-label fw-bold">Full name *</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
+
+      <!-- Digital Marketing -->
+      <div class="col-md-4">
+        <div class="highlight-box p-4 text-center shadow-sm">
+          <div class="icon-circle mb-3"><i class="fa-solid fa-bullhorn"></i></div>
+          <h5 class="fw-bold">Digital Marketing</h5>
+          <p class="text-muted">SEO, SMM, SEM, Email Marketing, Analytics with live projects.</p>
+        </div>
+      </div>
+
+      <!-- Corporate Training -->
+      <div class="col-md-4">
+        <div class="highlight-box p-4 text-center shadow-sm">
+          <div class="icon-circle mb-3"><i class="fa-solid fa-chart-line"></i></div>
+          <h5 class="fw-bold">Corporate Training</h5>
+          <p class="text-muted">Specialized corporate and institutional programs tailored for growth.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Why Choose Kolkata Center -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">💡 Why Choose Roy Info Kolkata?</h2>
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="highlight-box text-center">
+            <i class="fa-solid fa-chalkboard-user fa-2x text-warning mb-3"></i>
+            <h6>Expert Trainers</h6>
           </div>
-          
-          <!-- Email -->
-          <div class="mb-3">
-            <label for="email" class="form-label fw-bold">Email address *</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
+        </div>
+        <div class="col-md-3">
+          <div class="highlight-box text-center">
+            <i class="fa-solid fa-certificate fa-2x text-warning mb-3"></i>
+            <h6>30+ Global Certifications</h6>
           </div>
-          
-          <!-- Message -->
-          <div class="mb-3">
-            <label for="message" class="form-label fw-bold">Write your message *</label>
-            <textarea class="form-control" id="message" rows="5" placeholder="Type your message here..." required></textarea>
+        </div>
+        <div class="col-md-3">
+          <div class="highlight-box text-center">
+            <i class="fa-solid fa-briefcase fa-2x text-warning mb-3"></i>
+            <h6>650+ Placement Tie-ups</h6>
           </div>
-          
-          <!-- Button -->
-          <div class="d-grid">
-            <button type="submit" class="btn btn-warning rounded-pill fw-bold py-2">
-              Send Message
-            </button>
+        </div>
+        <div class="col-md-3">
+          <div class="highlight-box text-center">
+            <i class="fa-solid fa-users fa-2x text-warning mb-3"></i>
+            <h6>Vibrant Community</h6>
           </div>
-          
-        </form>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
+  <!-- Location & Contact -->
+  <section class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="section-title mb-3">📍 Visit Us</h2>
+      <p class="text-muted">Roy Info – Kolkata Center <br> 123 Park Street, Kolkata, West Bengal</p>
+      <div class="my-4">
+         <section>
+    <div class="container-fluid p-0">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.7868330893402!2d88.34847017507585!3d22.512179679534835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0270cdb10bffff%3A0x2e8295ea16984f1b!2sRoy%20Informatics%20Private%20Limited!5e0!3m2!1sen!2sin!4v1758174655005!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+     
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-5">
+    <div class="container text-center cta-section">
+      <h2 class="fw-bold">🚀 Let’s Start Your Journey at Kolkata Center</h2>
+      <p class="mb-4">Enroll today and experience practical learning with top trainers and real-world exposure.</p>
+      <a href="enrollment.html" class="btn btn-dark btn-lg rounded-pill fw-bold">Enroll Now</a>
+    </div>
+  </section>
+  <!-- FOOTER -->
 <footer class="footer bg-dark text-light pt-5 pb-4">
   <div class="container">
     <div class="row">
@@ -632,6 +667,7 @@
   </div>
 </footer>
 
+
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
@@ -661,6 +697,7 @@ document.querySelectorAll('.navbar .dropdown').forEach(function (dropdown) {
     }
   });
 });
-</script>
+    </script>
+
 </body>
 </html>
